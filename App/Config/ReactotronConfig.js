@@ -1,4 +1,3 @@
-import { StartupTypes } from '../Redux/StartupRedux'
 import Config from '../Config/DebugConfig'
 import Immutable from 'seamless-immutable'
 const Reactotron = require('reactotron-react-native').default
@@ -27,7 +26,7 @@ if (Config.useReactotron) {
     // setup the redux integration with Reactotron
     .use(reactotronRedux({
       // you can flag some of your actions as important by returning true here
-      isActionImportant: action => action.type === StartupTypes.STARTUP,
+      isActionImportant: action => false,
 
       // you can flag to exclude certain types too... especially the chatty ones
       // except: ['EFFECT_TRIGGERED', 'EFFECT_RESOLVED', 'EFFECT_REJECTED', 'persist/REHYDRATE'],

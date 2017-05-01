@@ -39,22 +39,20 @@ export default StyleSheet.create({
     borderTopColor: Colors.brand,
     borderBottomWidth: 1,
     borderBottomColor: Colors.brand,
-    borderBottomLeftRadius: 5,
-    borderTopLeftRadius: 5,
+    borderRadius: 5,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
     borderRightColor: Colors.brand,
     borderRightWidth: 0.5
   },
   stepperPlus: {
+    borderWidth: 1,
     borderLeftWidth: 0.5,
-    borderLeftColor: Colors.brand,
-    borderTopWidth: 1,
-    borderTopColor: Colors.brand,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.brand,
-    borderBottomRightRadius: 5,
-    borderTopRightRadius: 5,
-    borderRightWidth: 1,
-    borderRightColor: Colors.brand
+    backgroundColor: Colors.white,
+    borderColor: Colors.brand,
+    borderRadius: 5,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0
   },
   title: {
     ...Fonts.style.h4,

@@ -1,4 +1,4 @@
-import gameActions from '../Redux/GameRedux';
+import gameActions from '../Redux/GameRedux'
 import { NativeModules } from 'react-native'
 const AudioPlayer = NativeModules.AudioPlayer
 
@@ -15,14 +15,9 @@ export default class Game {
     this.gameEndCallback = () => {}
   }
 
-  startGame (gameEndCallback) {
-    this.startNewPeriod()
-    this.setupGameTimer()
-    this.gameEndCallback = gameEndCallback
-  }
-
-  private startNewPeriod () {
-    let song = this.settings.songs[Math.floor(Math.random() * this.settings.songs.length) + 1]
+  startNewPeriod () {
+    let idx = Math.floor(Math.random() * (this.settings.songs.length - 1))
+    let song = this.settings.songs[idx]
     AudioPlayer.changeSong(song.title, song.artist)
     this.currentPeriod = this.currentPeriod + 1
     this.initialBeepOffset = Game.getRandomBeepTime()
@@ -36,16 +31,23 @@ export default class Game {
     this.dispatch(gameActions.setMatchTimeLeft(this.matchTimeLeft))
   }
 
-  private setupGameTimer () {
-    if (this.gameTimer !== undefined){
+  startGame (gameEndCallback) {
+    this.startNewPeriod()
+    this.setupGameTimer()
+    this.gameEndCallback = gameEndCallback
+  }
+
+  setupGameTimer () {
+    if (this.gameTimer !== undefined) {
       clearInterval(this.gameTimer)
     }
 
     this.update()
     this.gameTimer = setInterval(() => {
       if (!this.isOvertime) {
-        this.mathTimeLeft = this.mathTimeLeft - 1
-        this.dispatch(gameActions.setMatchTimeLeft(this.mathTimeLeft))
+        console.log(this.matchTimeLeft)
+        this.matchTimeLeft = this.matchTimeLeft - 1
+        this.dispatch(gameActions.setMatchTimeLeft(this.matchTimeLeft))
       }
       this.update()
     }, 1000)
@@ -74,7 +76,7 @@ export default class Game {
     this.gameEndCallback()
   }
 
-  private playJingle () {
+  playJingle () {
     this.isJinglePlaying = true
     AudioPlayer.playJingle()
   }
@@ -88,27 +90,28 @@ export default class Game {
     }
 
     this.invalidateTimers()
+    let beepTime = Game.getRandomBeepTime() * 1000
     this.throwingTimer = setTimeout(() => {
       this.beepForThrowing()
       if (this.isJinglePlaying) {
         AudioPlayer.playJingle()
       }
       this.setupGameTimer()
-    }, Game.getRandomBeepTime())
+    }, beepTime)
   }
 
-  private beepForThrowing () {
+  beepForThrowing () {
     AudioPlayer.longBeep()
     this.throwingGoalTimer = setTimeout(() => {
       AudioPlayer.throwingGoalBeep()
     }, 3000)
   }
 
-  static getRandomBeepTime() {
+  static getRandomBeepTime () {
     return Math.floor(Math.random() * 2) + 2;
   }
 
-  private invalidateTimers () {
+  invalidateTimers () {
     clearInterval(this.gameTimer)
     this.gameTimer = undefined
     clearInterval(this.throwingTimer)
@@ -117,7 +120,7 @@ export default class Game {
     this.throwingGoalTimer = undefined
   }
 
-  private getStatus(timeLeft, timeSpent){
+  getStatus(timeLeft, timeSpent){
     if (this.isOvertime) {
       return 'Overtime!'
     }
@@ -140,7 +143,7 @@ export default class Game {
     this.dispatch(gameActions.setCurrentPeriod(this.currentPeriod))
   }
 
-  private update () {
+  update () {
     let timeLeft = this.matchTimeLeft
     let timeSpent = this.totalMatchTime - this.matchTimeLeft
     this.dispatch(gameActions.setStatus(this.getStatus(timeLeft, timeSpent)))
@@ -154,33 +157,25 @@ export default class Game {
     console.log(`time spent: ${timeSpent}, time left: ${timeLeft}`)
     if (timeSpent === 0) {
       this.playJingle()
-    }
-    else if (timeSpent === 22) {
-      AudioPlayer.fadeOuntAndStopPlayer()
-    }
-    else if (timeSpent === 30) {
+    } else if (timeSpent === 22) {
+      AudioPlayer.fadeOutAndStopPlayer()
+    } else if (timeSpent === 30) {
       this.isJinglePlaying = false
-    }
-    else if (timeSpent === 30 + this.initialBeepOffset){
+    } else if (timeSpent === 30 + this.initialBeepOffset){
       this.beepForThrowing()
-    }
-    else if (timeLeft === 0) {
+    } else if (timeLeft === 0) {
       AudioPlayer.longBeep()
       this.isJinglePlaying = false
       if (this.currentPeriod === this.totalPeriods) {
         this.startOvertime()
-      }
-      else {
+      } else {
         this.startNewPeriod()
       }
-    }
-    else if (timeLeft === 7) {
-      AudioPlayer.fadeOuntAndStopPlayer()
-    }
-    else if (timeLeft === 30) {
+    } else if (timeLeft === 7) {
+      AudioPlayer.fadeOutAndStopPlayer()
+    } else if (timeLeft === 30) {
       this.playJingle()
-    }
-    else if (timeLeft > 59 && timeLeft < this.settings.matchTime * 60 && timeLeft % 60 === 0) {
+    } else if (timeLeft > 59 && timeLeft < this.settings.matchTime * 60 && timeLeft % 60 === 0) {
       AudioPlayer.beep(timeLeft / 60)
     }
   }
