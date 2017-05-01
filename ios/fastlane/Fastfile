@@ -53,6 +53,6 @@ platform :ios do
   end
 
   error do |lane, exception|
-    slack(message: "Build failed #{exception} on lane: #{lane}")
+#    slack(message: "Build failed #{exception} on lane: #{lane}")
   end
 end
