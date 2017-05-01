@@ -30,8 +30,8 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :beta do
     increment_version_number
-#    match(type: "appstore", readonly: true)
-    gym(scheme: "jinglify")
+    match(type: "appstore", readonly: true)
+    gym(scheme: “Jinglify")
     pilot
   end
 
