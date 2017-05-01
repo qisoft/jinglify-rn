@@ -51,3 +51,7 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+
+ios/Jinglify\.app\.dSYM\.zip
+
+ios/fastlane/report\.xml
