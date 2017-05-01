@@ -1,0 +1,5 @@
+git_url "ssh://git@git.fastdev.se:19337/fastpool/ios-certificates.git"
+
+type "development" # The default type, can be: appstore, adhoc or development
+app_identifier "se.fastdev.jinglify"
+username "ios@fastdev.se" # Your Apple Developer Portal username

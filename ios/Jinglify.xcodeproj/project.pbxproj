@@ -757,7 +757,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 73Y9FMTF75;
+						DevelopmentTeam = NDGVZZNAQK;
 						LastSwiftMigration = 830;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -1313,7 +1313,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 73Y9FMTF75;
+				DEVELOPMENT_TEAM = NDGVZZNAQK;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
@@ -1330,6 +1330,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = se.fastdev.jinglify;
 				PRODUCT_NAME = Jinglify;
 				SWIFT_OBJC_BRIDGING_HEADER = "Jinglify-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1344,7 +1345,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 73Y9FMTF75;
+				DEVELOPMENT_TEAM = NDGVZZNAQK;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
@@ -1361,6 +1362,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = se.fastdev.jinglify;
 				PRODUCT_NAME = Jinglify;
 				SWIFT_OBJC_BRIDGING_HEADER = "Jinglify-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

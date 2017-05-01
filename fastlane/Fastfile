@@ -1,0 +1,58 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.18.3"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+   ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+   ensure_git_status_clean
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :beta do
+    increment_version_number
+    match(type: "appstore", readonly: true)
+    gym(scheme: "jinglify")
+    pilot
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :release do
+    puts "🖕 Deploy to Appstore not supported. 🖕"
+  end
+
+  after_all do |lane|
+    clean_build_artifacts
+    full_version="#{get_version_number}(#{get_build_number})"
+    commit_version_bump(
+      message: "Version bump #{full_version}",
+      xcodeproj: "jinglify.xcodeproj"
+    )
+    add_git_tag
+    push_to_git_remote(local_branch: git_branch)
+    slack(message: "Jinglify #{full_version} deployed to Appstore. Will be available on TestFlight soon.")
+  end
+
+  error do |lane, exception|
+    slack(message: "Build failed #{exception} on lane: #{lane}")
+  end
+end
