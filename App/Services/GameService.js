@@ -1,5 +1,7 @@
 import gameActions from '../Redux/GameRedux'
 import { NativeModules } from 'react-native'
+
+import Utils from './Utils'
 const AudioPlayer = NativeModules.AudioPlayer
 
 export default class Game {
@@ -8,7 +10,7 @@ export default class Game {
     this.settings = state.gameSettings
     this.initialBeepOffset = 0
     this.totalMatchTime = 0
-    this.mathTimeLeft = 0
+    this.matchTimeLeft = 0
     this.currentPeriod = 0
     this.totalPeriods = this.settings.periodsCount >= 1 ? this.settings.periodsCount : 1
     this.isOvertime = false
@@ -16,7 +18,7 @@ export default class Game {
   }
 
   startNewPeriod () {
-    let idx = Math.floor(Math.random() * (this.settings.songs.length - 1))
+    let idx = Utils.getRandom(0, this.settings.songs.length - 1)
     let song = this.settings.songs[idx]
     if (song === undefined) {
       song = {
@@ -114,7 +116,7 @@ export default class Game {
   }
 
   static getRandomBeepTime () {
-    return Math.floor(Math.random() * 2) + 2;
+    return Utils.getRandom(2, 4)
   }
 
   invalidateTimers () {
@@ -130,7 +132,7 @@ export default class Game {
     if (timeSpent < 0) {
       return 'Change your sides!'
     }
-    if (timeLeft <= this.settings.matchTime * 60){
+    if (timeLeft <= this.settings.matchTime * 60) {
       return ''
     }
     if (timeSpent >= 0 && timeSpent <= 27) {
@@ -164,7 +166,7 @@ export default class Game {
       AudioPlayer.fadeOutAndStopPlayer()
     } else if (timeSpent === 30) {
       this.isJinglePlaying = false
-    } else if (timeSpent === 30 + this.initialBeepOffset){
+    } else if (timeSpent === 30 + this.initialBeepOffset) {
       this.beepForThrowing()
     }
     if (timeLeft === 0) {

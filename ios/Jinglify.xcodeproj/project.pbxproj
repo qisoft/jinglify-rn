@@ -36,6 +36,7 @@
 		282CFD371EB8A3B000B00F2A /* russian-anthem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 282CFD361EB8A3B000B00F2A /* russian-anthem.mp3 */; };
 		29B54CF63E214C008896B08F /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5257071D91CB4531813D5CC4 /* libcxxreact.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		6EC7666404284856AD4B1EF6 /* libKCKeepAwake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 382D07893BEB4304B07DAD57 /* libKCKeepAwake.a */; };
 		779727A5BF47459E9B1E5E52 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F5DC4CBD144C82893D287E /* libRNDeviceInfo.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		B5E83F18D6124722822DF364 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6084DE859B394B9F9778147D /* libReactNativeConfig.a */; };
@@ -151,6 +152,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
 			remoteInfo = ART;
+		};
+		282CFD601EB8BCFF00B00F2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D33D89B169A476EAAF8AF8F /* KCKeepAwake.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = KCKeepAwake;
 		};
 		3DAD3E831DF850E9000B6D8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -309,12 +317,14 @@
 		282CFD141EB89D4400B00F2A /* MockPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPlayer.swift; sourceTree = "<group>"; };
 		282CFD361EB8A3B000B00F2A /* russian-anthem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "russian-anthem.mp3"; path = "Jinglify/russian-anthem.mp3"; sourceTree = "<group>"; };
 		28A14C19731842C6A3904799 /* RNiTunes.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNiTunes.xcodeproj; path = "../node_modules/react-native-itunes/RNiTunes.xcodeproj"; sourceTree = "<group>"; };
+		382D07893BEB4304B07DAD57 /* libKCKeepAwake.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libKCKeepAwake.a; sourceTree = "<group>"; };
 		5257071D91CB4531813D5CC4 /* libcxxreact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libcxxreact.a; sourceTree = "<group>"; };
 		56DED120D7A44D96B56E649B /* libRNBlur.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNBlur.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6084DE859B394B9F9778147D /* libReactNativeConfig.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeConfig.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		8D33D89B169A476EAAF8AF8F /* KCKeepAwake.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = KCKeepAwake.xcodeproj; path = "../node_modules/react-native-keep-awake/ios/KCKeepAwake.xcodeproj"; sourceTree = "<group>"; };
 		988B1D7F1FBE4B2DBE2A5317 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 		C83433F0BC7C4A81911E13F8 /* libyoga.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libyoga.a; sourceTree = "<group>"; };
 		CA80B88261E64774981B332D /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
@@ -350,6 +360,7 @@
 				D65249404B9D4AB48F88AB1C /* libjschelpers.a in Frameworks */,
 				E4DBA860221945B283463768 /* libRNBlur.a in Frameworks */,
 				F26A51BC4D8C4E0B932D1EC8 /* libRNiTunes.a in Frameworks */,
+				6EC7666404284856AD4B1EF6 /* libKCKeepAwake.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +526,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		282CFD5C1EB8BCFE00B00F2A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				282CFD611EB8BCFF00B00F2A /* libKCKeepAwake.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,6 +572,7 @@
 				988B1D7F1FBE4B2DBE2A5317 /* RNI18n.xcodeproj */,
 				140B43F5668043DAA9CF159F /* RNBlur.xcodeproj */,
 				28A14C19731842C6A3904799 /* RNiTunes.xcodeproj */,
+				8D33D89B169A476EAAF8AF8F /* KCKeepAwake.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -638,6 +658,10 @@
 				{
 					ProductGroup = 282CFC571EB66F3000B00F2A /* Products */;
 					ProjectRef = 282CFC561EB66F3000B00F2A /* ART.xcodeproj */;
+				},
+				{
+					ProductGroup = 282CFD5C1EB8BCFE00B00F2A /* Products */;
+					ProjectRef = 8D33D89B169A476EAAF8AF8F /* KCKeepAwake.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
@@ -815,6 +839,13 @@
 			fileType = archive.ar;
 			path = libART.a;
 			remoteRef = 282CFC5A1EB66F3100B00F2A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		282CFD611EB8BCFF00B00F2A /* libKCKeepAwake.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libKCKeepAwake.a;
+			remoteRef = 282CFD601EB8BCFF00B00F2A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
@@ -1018,10 +1049,15 @@
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 					"$(SRCROOT)/../node_modules/react-native-blur/ios",
 					"$(SRCROOT)/../node_modules/react-native-itunes/RNiTunes",
+					"$(SRCROOT)/../node_modules/react-native-keep-awake/ios",
 				);
 				INFOPLIST_FILE = Jinglify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Jinglify\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1053,10 +1089,15 @@
 					"$(SRCROOT)/../node_modules/react-native-i18n/RNI18n",
 					"$(SRCROOT)/../node_modules/react-native-blur/ios",
 					"$(SRCROOT)/../node_modules/react-native-itunes/RNiTunes",
+					"$(SRCROOT)/../node_modules/react-native-keep-awake/ios",
 				);
 				INFOPLIST_FILE = Jinglify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Jinglify\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

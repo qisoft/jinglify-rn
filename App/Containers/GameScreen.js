@@ -3,8 +3,11 @@ import { AppState, View, Text, TouchableOpacity, Alert, LayoutAnimation } from '
 import { connect } from 'react-redux'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import { Actions as NavigationActions } from 'react-native-router-flux'
-import { BlurView } from 'react-native-blur';
+import { BlurView } from 'react-native-blur'
+import KeepAwake from 'react-native-keep-awake'
+
 import Game from '../Services/GameService'
+import Utils from '../Services/Utils'
 import { Colors } from '../Themes'
 import styles from './Styles/GameScreenStyles.js'
 
@@ -50,15 +53,17 @@ class GameScreen extends React.Component {
   }
 
   componentDidMount () {
-    this.game = new Game(this.props.dispatch, this.props.state);
+    this.game = new Game(this.props.dispatch, this.props.state)
     this.game.startGame(() => {
       NavigationActions.pop()
     })
-    AppState.addEventListener('change', this._handleAppStateChange);
+    AppState.addEventListener('change', this._handleAppStateChange)
+    KeepAwake.activate()
   }
 
-  componentWillUnmount() {
-    AppState.removeEventListener('change', this._handleAppStateChange);
+  componentWillUnmount () {
+    AppState.removeEventListener('change', this._handleAppStateChange)
+    KeepAwake.deactivate()
   }
 
   _handleAppStateChange = (nextAppState) => {
@@ -67,16 +72,10 @@ class GameScreen extends React.Component {
     }
   }
 
-  pad (number, size) {
-    let s = String(number)
-    while (s.length < (size || 2)) { s = '0' + s }
-    return s
-  }
-
   render () {
-    let { timeLeft, matchTime, status, currentPeriod, cleanMatchTime } = this.props
-    let minutesLeft = this.pad(Math.floor(timeLeft / 60))
-    let secondsLeft = this.pad(this.props.timeLeft % 60)
+    let { timeLeft, status, currentPeriod, cleanMatchTime } = this.props
+    let minutesLeft = Utils.pad(Math.floor(timeLeft / 60))
+    let secondsLeft = Utils.pad(this.props.timeLeft % 60)
     let progress = ((cleanMatchTime - timeLeft) / cleanMatchTime) * 100
     return <View style={styles.mainContainer}>
       <View style={styles.container}>

@@ -39,6 +39,7 @@
     "react-native-drawer": "2.3.0",
     "react-native-i18n": "^1.0.0",
     "react-native-itunes": "^0.4.3",
+    "react-native-keep-awake": "^2.0.4",
     "react-native-router-flux": "3.38.0",
     "react-redux": "5.0.4",
     "redux": "3.6.0",

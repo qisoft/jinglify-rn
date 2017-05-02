@@ -4538,6 +4538,10 @@ react-native-itunes@^0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/react-native-itunes/-/react-native-itunes-0.4.3.tgz#891946b1ed4872125763edebd6cb16adc17970f9"
 
+react-native-keep-awake@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-keep-awake/-/react-native-keep-awake-2.0.4.tgz#da58b3161f1360163445c53e8c1cf411068f9a75"
+
 react-native-mock@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/react-native-mock/-/react-native-mock-0.3.1.tgz#13d22433c5351a8a7fb8aedd7862b614d087851c"
