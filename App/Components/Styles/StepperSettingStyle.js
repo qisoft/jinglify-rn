@@ -43,16 +43,20 @@ export default StyleSheet.create({
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
     borderRightColor: Colors.brand,
-    borderRightWidth: 0.5
+    borderRightWidth: 0.5,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    paddingLeft: 4
   },
   stepperPlus: {
     borderWidth: 1,
     borderLeftWidth: 0.5,
-    backgroundColor: Colors.white,
     borderColor: Colors.brand,
     borderRadius: 5,
     borderTopLeftRadius: 0,
-    borderBottomLeftRadius: 0
+    borderBottomLeftRadius: 0,
+    justifyContent: 'flex-start',
+    paddingRight: 4
   },
   title: {
     ...Fonts.style.h4,

@@ -13,7 +13,8 @@ const { Types, Creators } = createActions({
   setMatchTime: ['matchTime'],
   setPeriodsCount: ['periodsCount'],
   addSongs: ['songs'],
-  removeSong: ['song']
+  removeSong: ['song'],
+  setEditingState: ['isEditing']
 })
 
 export const GameSettingsTypes = Types
@@ -24,8 +25,11 @@ export default Creators
 export const INITIAL_STATE = Immutable({
   songs: [],
   songsCount: 0,
+  protectedSongs: [],
+  nonProtectedSongs: [],
   matchTime: 5,
-  periodsCount: 2
+  periodsCount: 2,
+  songsIsEditing: false
 })
 
 /* --- Reducers --- */
@@ -40,15 +44,50 @@ export const setPeriodsCount = (state, { periodsCount }) =>
 export const addSongs = (state, { songs }) =>
   state.merge({
     songs: uniqBy([...state.songs, ...songs], x => `${x.artist}-${x.title}`),
-    songsCount: state.songs.length + songs.length
+    songsCount: state.songs.length + songs.length,
+    protectedSongs: songs.filter(s => s.assetUrl.length === 0).map(x => ({
+      ...x,
+      isEditing: state.songsIsEditing
+    })),
+    nonProtectedSongs: songs.filter(s => s.assetUrl.length > 0).map(x => ({
+      ...x,
+      isEditing: state.songsIsEditing
+    }))
   })
 
-export const removeSong = (state, { song }) =>
-  state.merge({ songs: state.songs.filter(x => `${x.artist}-${x.title}` !== `${song.artist}-${song.title}`), songsCount: state.songs.length - 1 })
+export const removeSong = (state, { song }) => {
+  let songs = state.songs.filter(x => `${x.artist}-${x.title}` !== `${song.artist}-${song.title}`)
+  return state.merge({
+    songs: songs,
+    songsCount: state.songs.length - 1,
+    protectedSongs: songs.filter(s => s.assetUrl.length === 0).map(x => ({
+      ...x,
+      isEditing: state.songsIsEditing
+    })),
+    nonProtectedSongs: songs.filter(s => s.assetUrl.length > 0).map(x => ({
+      ...x,
+      isEditing: state.songsIsEditing
+    }))
+  })
+}
+
+export const setEditingState = (state, { isEditing }) =>
+  state.merge({
+    protectedSongs: state.songs.filter(s => s.assetUrl.length === 0).map(x => ({
+      ...x,
+      isEditing: isEditing
+    })),
+    nonProtectedSongs: state.songs.filter(s => s.assetUrl.length > 0).map(x => ({
+      ...x,
+      isEditing: isEditing
+    })),
+    songsIsEditing: isEditing
+  })
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.SET_MATCH_TIME]: setMatchTime,
   [Types.SET_PERIODS_COUNT]: setPeriodsCount,
   [Types.ADD_SONGS]: addSongs,
-  [Types.REMOVE_SONG]: removeSong
+  [Types.REMOVE_SONG]: removeSong,
+  [Types.SET_EDITING_STATE]: setEditingState
 })

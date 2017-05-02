@@ -17,7 +17,7 @@ class GameScreen extends React.Component {
       status: 'Get started'
     }
   }
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       isPaused: false
@@ -32,19 +32,19 @@ class GameScreen extends React.Component {
   }
 
   pauseGame () {
-    LayoutAnimation.spring()
+    LayoutAnimation.easeInEaseOut()
     this.setState({ isPaused: true })
     this.game.pauseGame()
   }
 
-  resumeGame() {
-    LayoutAnimation.spring()
+  resumeGame () {
+    LayoutAnimation.easeInEaseOut()
     this.setState({ isPaused: false })
     this.game.resumeGame()
   }
 
-  throwAPuck() {
-    LayoutAnimation.spring()
+  throwAPuck () {
+    LayoutAnimation.easeInEaseOut()
     this.setState({ isPaused: false })
     this.game.throwAPuck()
   }
@@ -101,7 +101,7 @@ class GameScreen extends React.Component {
 
             <TouchableOpacity style={styles.circle} onPress={() => this.pauseGame()}>
               <Text style={styles.timer}>
-                { timeLeft > cleanMatchTime ? 'Warm-up!' : `${minutesLeft}:${secondsLeft}` }</Text>
+                { timeLeft > cleanMatchTime ? '--:--' : `${minutesLeft}:${secondsLeft}` }</Text>
               <Text style={styles.tapToPause}>Tap to pause</Text>
             </TouchableOpacity>
           </View>

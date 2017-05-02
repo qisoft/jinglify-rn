@@ -77,5 +77,9 @@ export default StyleSheet.create({
     ...Fonts.style.bigButton,
     color: Colors.brand,
     marginTop: 16
+  },
+  addMoreSongs: {
+    alignItems: 'center',
+    flexDirection: 'row',
   }
 })

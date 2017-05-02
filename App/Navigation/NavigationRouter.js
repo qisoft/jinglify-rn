@@ -14,7 +14,7 @@ class NavigationRouter extends Component {
     return (
       <Router>
         <Scene initial key='getStarted' component={GetStartedScreen} title='Get Started' hideNavBar />
-        <Scene direction='vertical' key='songs' component={SongsScreen} title="Songs" hideNavBar/>
+        <Scene key='songs' component={SongsScreen} title="Songs" hideNavBar/>
         <Scene key='game' component={GameScreen} title="Game" hideNavBar />
       </Router>
     )

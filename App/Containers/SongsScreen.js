@@ -11,24 +11,7 @@ import { Images } from '../Themes'
 class SongsScreen extends React.Component {
   static get defaultProps () {
     return {
-      songs: [
-        {
-          persistentId: '1',
-          artist: 'Enter Shikari',
-          title: 'Sorry you\'re not a winner',
-          albumTitle: 'Take to the skies',
-          artwork: 'https://upload.wikimedia.org/wikipedia/ru/0/02/Take_to_the_skies.JPG',
-          assetUrl: ''
-        },
-        {
-          persistentId: '2',
-          artist: 'Enter Shikari',
-          title: 'Anything can happen in next half hour',
-          albumTitle: 'Take to the skies',
-          artwork: 'https://upload.wikimedia.org/wikipedia/ru/0/02/Take_to_the_skies.JPG',
-          assetUrl: ''
-        }
-      ]
+      songs: [ ]
     }
   }
   constructor (props) {
@@ -36,24 +19,16 @@ class SongsScreen extends React.Component {
     const rowHasChanged = (r1, r2) => (r1.artist !== r2.artist && r1.title !== r2.title) || r1.isEditing !== r2.isEditing
     const sectionHeaderHasChanged = (s1, s2) => s1 !== s2
     const ds = new ListView.DataSource({ rowHasChanged, sectionHeaderHasChanged })
-    let dataBlob = this.createBlobForSongs(props.songs, false)
+    let dataBlob = this.createBlobForSongs(props.protectedSongs, props.nonProtectedSongs)
     this.state = {
-      isEditing: false,
-      songs: props.songs,
       dataSource: ds.cloneWithRowsAndSections(dataBlob)
     }
   }
 
-  createBlobForSongs (songs, isEditing) {
+  createBlobForSongs (protectedSongs, nonProtectedSongs) {
     let dataBlob = {
-      nonProtected: songs.filter(s => s.assetUrl.length > 0).map(x => ({
-        ...x,
-        isEditing: isEditing
-      })),
-      protected: songs.filter(s => s.assetUrl.length === 0).map(x => ({
-        ...x,
-        isEditing: isEditing
-      }))
+      nonProtected: nonProtectedSongs,
+      protected: protectedSongs
     }
     if (dataBlob.protected.length === 0) {
       delete dataBlob.protected
@@ -67,18 +42,15 @@ class SongsScreen extends React.Component {
   componentWillReceiveProps (newProps) {
     if (newProps.songs) {
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRowsAndSections(this.createBlobForSongs(newProps.songs, this.state.isEditing)),
-        songs: newProps.songs
+        dataSource: this.state.dataSource.cloneWithRowsAndSections(
+          this.createBlobForSongs(newProps.protectedSongs, newProps.nonProtectedSongs))
       })
     }
   }
 
   changeEditingState (isEditing) {
-    LayoutAnimation.spring()
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRowsAndSections(this.createBlobForSongs(this.state.songs, isEditing)),
-      isEditing: isEditing
-    })
+    LayoutAnimation.easeInEaseOut()
+    this.props.setEditingState(isEditing)
   }
 
   renderRow (row) {
@@ -118,10 +90,10 @@ class SongsScreen extends React.Component {
   }
 
   renderEditButton () {
-    if (this.state.songs.length > 0) {
-      if (this.state.isEditing) {
-        return <TouchableOpacity onPress={() => this.loadTracks()}>
-          <Text style={styles.button}><Image source={Images.add} /> Add more songs</Text>
+    if (this.props.songs.length > 0) {
+      if (this.props.isEditing) {
+        return <TouchableOpacity style={styles.addMoreSongs} onPress={() => this.loadTracks()}>
+          <Image source={Images.add} /><Text style={styles.button}> Add more songs</Text>
         </TouchableOpacity>
       }
       return <TouchableOpacity onPress={() => this.changeEditingState(true)}>
@@ -137,7 +109,7 @@ class SongsScreen extends React.Component {
         <View style={styles.section}>
           <View style={styles.header}>
             <Text style={styles.titleText}>Jingles</Text>
-            { !this.state.isEditing
+            { !this.props.isEditing
               ? <TouchableOpacity onPress={() => NavigationActions.pop()}>
                 <Text style={styles.buttonRed}>Close</Text>
               </TouchableOpacity>
@@ -151,7 +123,7 @@ class SongsScreen extends React.Component {
           { this.renderEditButton() }
         </View>
         {
-          this.state.songs.length > 0
+          this.props.songs.length > 0
             ? <View
             style={styles.list}>
             <ListView
@@ -175,12 +147,16 @@ class SongsScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  songs: state.gameSettings.songs
+  songs: state.gameSettings.songs,
+  protectedSongs: state.gameSettings.protectedSongs,
+  nonProtectedSongs: state.gameSettings.nonProtectedSongs,
+  isEditing: state.gameSettings.songsIsEditing
 })
 
 const mapDispatchToProps = (dispatch) => ({
   addSongs: (songs) => dispatch(gameSettingsActions.addSongs(songs)),
-  removeSong: (song) => dispatch(gameSettingsActions.removeSong(song))
+  removeSong: (song) => dispatch(gameSettingsActions.removeSong(song)),
+  setEditingState: (isEditing) => dispatch(gameSettingsActions.setEditingState(isEditing))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongsScreen)
