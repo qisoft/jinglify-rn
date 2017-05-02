@@ -30,7 +30,11 @@ class MusicPlayer: JinglePlayer {
   }
   
   func fadeOutAndStop() {
-    player.stop()
+    DispatchQueue.main.async(execute: {
+      Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+        self.player.stop()
+      }
+    })
   }
   
   var isFading = false

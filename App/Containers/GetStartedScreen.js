@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
+import DeviceInfo from 'react-native-device-info'
 
 import BigBlueButton from '../Components/BigBlueButton'
 
@@ -34,7 +35,7 @@ class GetStartedScreen extends Component
         <ShortSeparator/>
         <StepperSetting title={"Periods"} onChange={setPeriodsCount} value={periodsCount} subtitleText={"periods"} />
         <View style={styles.redButtonContainer}>
-          <RedButton disabled={songsCount === 0} onPress={() => NavigationActions.game()} style={styles.redButton} title="Start a match" />
+          <RedButton disabled={songsCount === 0 && !DeviceInfo.isEmulator()} onPress={() => NavigationActions.game()} style={styles.redButton} title="Start a match" />
         </View>
       </View>
     </View>

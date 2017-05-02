@@ -82,7 +82,7 @@ class GameScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.section}>
           <View style={styles.header}>
-            <Text style={styles.titleText}>Period #{currentPeriod}</Text>
+            <Text style={styles.titleText}>{ currentPeriod === 0 ? 'Overtime' : `Period #${currentPeriod}` }</Text>
             <TouchableOpacity onPress={() => this.endGame()}>
                 <Text style={styles.buttonRed}>End match</Text>
               </TouchableOpacity>

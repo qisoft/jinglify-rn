@@ -32,6 +32,8 @@
 		282CFBC01EB3927B00B00F2A /* beep-03.wav in Resources */ = {isa = PBXBuildFile; fileRef = 282CFBBD1EB3927B00B00F2A /* beep-03.wav */; };
 		282CFC5D1EB6703500B00F2A /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 282CFC5B1EB66F3100B00F2A /* libART.a */; };
 		282CFC621EB6772C00B00F2A /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 282CFC611EB6772C00B00F2A /* RobotoMono-Bold.ttf */; };
+		282CFD151EB89D4400B00F2A /* MockPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282CFD141EB89D4400B00F2A /* MockPlayer.swift */; };
+		282CFD371EB8A3B000B00F2A /* russian-anthem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 282CFD361EB8A3B000B00F2A /* russian-anthem.mp3 */; };
 		29B54CF63E214C008896B08F /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5257071D91CB4531813D5CC4 /* libcxxreact.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		779727A5BF47459E9B1E5E52 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F5DC4CBD144C82893D287E /* libRNDeviceInfo.a */; };
@@ -304,6 +306,8 @@
 		282CFBBD1EB3927B00B00F2A /* beep-03.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "beep-03.wav"; path = "Jinglify/beep-03.wav"; sourceTree = "<group>"; };
 		282CFC561EB66F3000B00F2A /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		282CFC611EB6772C00B00F2A /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoMono-Bold.ttf"; path = "Jinglify/RobotoMono-Bold.ttf"; sourceTree = "<group>"; };
+		282CFD141EB89D4400B00F2A /* MockPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPlayer.swift; sourceTree = "<group>"; };
+		282CFD361EB8A3B000B00F2A /* russian-anthem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "russian-anthem.mp3"; path = "Jinglify/russian-anthem.mp3"; sourceTree = "<group>"; };
 		28A14C19731842C6A3904799 /* RNiTunes.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNiTunes.xcodeproj; path = "../node_modules/react-native-itunes/RNiTunes.xcodeproj"; sourceTree = "<group>"; };
 		5257071D91CB4531813D5CC4 /* libcxxreact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libcxxreact.a; sourceTree = "<group>"; };
 		56DED120D7A44D96B56E649B /* libRNBlur.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNBlur.a; sourceTree = "<group>"; };
@@ -415,6 +419,7 @@
 		13B07FAE1A68108700A75B9A /* Jinglify */ = {
 			isa = PBXGroup;
 			children = (
+				282CFD361EB8A3B000B00F2A /* russian-anthem.mp3 */,
 				282CFC611EB6772C00B00F2A /* RobotoMono-Bold.ttf */,
 				282CFBBB1EB3927B00B00F2A /* beep-01a.wav */,
 				282CFBBC1EB3927B00B00F2A /* beep-02.wav */,
@@ -432,6 +437,7 @@
 				282CFBB51EB379AF00B00F2A /* AvMusicPlayer.swift */,
 				282CFBB71EB379CC00B00F2A /* JinglePlayer.swift */,
 				282CFBB91EB3908600B00F2A /* AudioPlayerBridge.m */,
+				282CFD141EB89D4400B00F2A /* MockPlayer.swift */,
 			);
 			name = Jinglify;
 			sourceTree = "<group>";
@@ -937,6 +943,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282CFD371EB8A3B000B00F2A /* russian-anthem.mp3 in Resources */,
 				282CFBBE1EB3927B00B00F2A /* beep-01a.wav in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				282CFBBF1EB3927B00B00F2A /* beep-02.wav in Resources */,
@@ -972,6 +979,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				282CFD151EB89D4400B00F2A /* MockPlayer.swift in Sources */,
 				282CFBB41EB3798D00B00F2A /* MusicPlayer.swift in Sources */,
 				282CFBB61EB379AF00B00F2A /* AvMusicPlayer.swift in Sources */,
 				282CFBAD1EB3790400B00F2A /* AudioPlayer.swift in Sources */,

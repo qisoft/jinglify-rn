@@ -37,6 +37,8 @@ const ApplicationStyles = {
     },
     buttonRed: {
       color: Colors.red,
+      paddingTop: 10,
+      paddingBottom: 10,
       ...Fonts.style.button
     }
   }

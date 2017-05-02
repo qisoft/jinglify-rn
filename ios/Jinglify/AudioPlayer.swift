@@ -87,11 +87,17 @@ class AudioPlayer : NSObject, MPMediaPickerControllerDelegate {
                                                       forProperty: MPMediaItemPropertyTitle))
     query.addFilterPredicate(MPMediaPropertyPredicate(value: artistTitle,
                                                       forProperty: MPMediaItemPropertyArtist))
+    
+    #if (arch(i386) || arch(x86_64)) && os(iOS)
+      jinglePlayer = MockPlayer()
+      
+    #else
     if let song = query.items?.first
     {
-      jinglePlayer = song.assetURL == nil ? MusicPlayer() : AvMusicPlayer()
+        jinglePlayer = song.assetURL == nil ? MusicPlayer() : AvMusicPlayer()
       jinglePlayer?.setJingle(song: song)
     }
+    #endif
   }
   
   @objc func pauseJingle(){

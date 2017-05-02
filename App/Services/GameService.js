@@ -18,6 +18,12 @@ export default class Game {
   startNewPeriod () {
     let idx = Math.floor(Math.random() * (this.settings.songs.length - 1))
     let song = this.settings.songs[idx]
+    if (song === undefined) {
+      song = {
+        title: 'song',
+        artist: 'mock'
+      }
+    }
     AudioPlayer.changeSong(song.title, song.artist)
     this.currentPeriod = this.currentPeriod + 1
     this.initialBeepOffset = Game.getRandomBeepTime()
@@ -120,10 +126,7 @@ export default class Game {
     this.throwingGoalTimer = undefined
   }
 
-  getStatus(timeLeft, timeSpent){
-    if (this.isOvertime) {
-      return 'Overtime!'
-    }
+  getStatus (timeLeft, timeSpent) {
     if (timeSpent < 0) {
       return 'Change your sides!'
     }
@@ -163,7 +166,8 @@ export default class Game {
       this.isJinglePlaying = false
     } else if (timeSpent === 30 + this.initialBeepOffset){
       this.beepForThrowing()
-    } else if (timeLeft === 0) {
+    }
+    if (timeLeft === 0) {
       AudioPlayer.longBeep()
       this.isJinglePlaying = false
       if (this.currentPeriod === this.totalPeriods) {

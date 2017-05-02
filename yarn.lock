@@ -4499,11 +4499,17 @@ react-native-blur@^3.0.0-alpha:
   version "3.0.0-alpha"
   resolved "https://registry.yarnpkg.com/react-native-blur/-/react-native-blur-3.0.0-alpha.tgz#d1efa6fca64a56301f1ae3c052dfc07ad0e19e85"
 
+react-native-circular-progress@0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-native-circular-progress/-/react-native-circular-progress-0.0.8.tgz#53ccdbe57357ce2459f8ab1b67119a3e2a5014b4"
+  dependencies:
+    art "^0.10.0"
+
 react-native-config@0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-0.3.1.tgz#981d98eee2c4e467397cd9306f5b6958c501c6e8"
 
-react-native-device-info@0.10.2:
+react-native-device-info@^0.10.2:
   version "0.10.2"
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-0.10.2.tgz#350cd68ed43839022ddea0a3a423439f16fa4fba"
 

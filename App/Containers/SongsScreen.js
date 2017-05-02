@@ -114,7 +114,7 @@ class SongsScreen extends React.Component {
                 <Text style={styles.buttonRed}>Close</Text>
               </TouchableOpacity>
               : <TouchableOpacity onPress={() => this.changeEditingState(false)}>
-                <Text style={styles.button}>Done</Text>
+                <Text style={[styles.button, styles.doneButton]}>Done</Text>
               </TouchableOpacity>
             }
           </View>

@@ -80,6 +80,10 @@ export default StyleSheet.create({
   },
   addMoreSongs: {
     alignItems: 'center',
-    flexDirection: 'row',
+    flexDirection: 'row'
+  },
+  doneButton: {
+    paddingTop: 10,
+    paddingBottom: 10
   }
 })

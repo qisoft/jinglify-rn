@@ -35,7 +35,7 @@
     "react-native-blur": "^3.0.0-alpha",
     "react-native-circular-progress": "0.0.8",
     "react-native-config": "0.3.1",
-    "react-native-device-info": "0.10.2",
+    "react-native-device-info": "^0.10.2",
     "react-native-drawer": "2.3.0",
     "react-native-i18n": "^1.0.0",
     "react-native-itunes": "^0.4.3",
