@@ -23,18 +23,18 @@ class GetStartedScreen extends Component
       <View style={styles.container}>
         <View style={styles.section}>
           <View style={styles.header}>
-            <Text style={styles.titleText}>{"Get started"}</Text>
+            <Text style={styles.titleText}>{'Get started'}</Text>
           </View>
         </View>
         <View style={{ marginTop: 10 }}>
           <BlurryBackground>
-            <BigBlueButton onPress={() => NavigationActions.songs()} title={"Jingles"} subtitleNumber={`${songsCount}`} subtitleText={"songs"} />
+            <BigBlueButton onPress={() => NavigationActions.songs()} title={'Jingles'} subtitleNumber={`${songsCount}`} subtitleText={'songs'} />
           </BlurryBackground>
         </View>
         <View elevation={21}>
-          <StepperSetting title={"Match time"} onChange={setMatchTime} value={matchTime} subtitleText={"minutes"} />
-          <ShortSeparator/>
-          <StepperSetting title={"Periods"} onChange={setPeriodsCount} value={periodsCount} subtitleText={"periods"} />
+          <StepperSetting title={'Match time'} onChange={setMatchTime} value={matchTime} subtitleText={'minutes'} />
+          <ShortSeparator />
+          <StepperSetting title={'Periods'} onChange={setPeriodsCount} value={periodsCount} subtitleText={'periods'} />
         </View>
         <View style={styles.redButtonContainer}>
           <RedButton disabled={songsCount === 0 && !DeviceInfo.isEmulator()} onPress={() => NavigationActions.game()} style={styles.redButton} title="Start a match" />

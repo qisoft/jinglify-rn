@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppState, View, Text, TouchableOpacity, Alert, Image, LayoutAnimation, findNodeHandle } from 'react-native'
+import { AppState, View, Text, TouchableOpacity, Alert, LayoutAnimation, findNodeHandle } from 'react-native'
 import { connect } from 'react-redux'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import { Actions as NavigationActions } from 'react-native-router-flux'
@@ -9,7 +9,7 @@ import KeepAwake from 'react-native-keep-awake'
 import Game from '../Services/GameService'
 import gameActions from '../Redux/GameRedux'
 import Utils from '../Services/Utils'
-import { Colors, Images } from '../Themes'
+import { Colors } from '../Themes'
 import styles from './Styles/GameScreenStyles.js'
 
 class GameScreen extends React.Component {
@@ -94,8 +94,8 @@ class GameScreen extends React.Component {
           <View style={[styles.header]}>
             <Text style={styles.titleText}>{ currentPeriod === 0 ? 'Overtime' : `Period #${currentPeriod}` }</Text>
             <TouchableOpacity onPress={() => this.endGame()}>
-                <Text style={styles.buttonRed}>End match</Text>
-              </TouchableOpacity>
+              <Text style={styles.buttonRed}>End match</Text>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.gameContainer}>
@@ -107,7 +107,7 @@ class GameScreen extends React.Component {
               backgroundColor={Colors.greyBg}
               size={310}
               width={10}
-              fill={progress}/>
+              fill={progress} />
 
             <TouchableOpacity style={styles.circle} onPress={() => this.pauseGame()}>
               <Text style={styles.timer}>
@@ -120,22 +120,20 @@ class GameScreen extends React.Component {
           <Text style={styles.statusText}>{status}</Text>
         </View>
       </View>
-      {
-        this.state.isPaused
-          ? <View elevation={10} style={styles.pauseScreen}>
-              <BlurView downsampleFactor={1} blurRadius={10} style={[styles.pauseBlur]} viewRef={ this.state.blurredRef } blurAmount={10}/>
-              <View elevation={20} style={styles.pauseMenuContainer}>
-                <Text style={styles.pauseTitle}>Paused</Text>
-                <TouchableOpacity style={styles.pauseThrowButton} onPress={() => this.throwAPuck()}>
-                  <Text style={styles.pauseThrowButtonText}>Throw a puck</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.pauseResumeButton} onPress={() => this.resumeGame()}>
-                  <Text style={styles.pauseResumeButtonText}>Resume match</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          : undefined
-      }
+      { this.state.isPaused
+        ? <View elevation={10} style={styles.pauseScreen}>
+          <BlurView downsampleFactor={1} blurRadius={10} style={[styles.pauseBlur]} viewRef={ this.state.blurredRef } blurAmount={10}/>
+          <View elevation={20} style={styles.pauseMenuContainer}>
+            <Text style={styles.pauseTitle}>Paused</Text>
+            <TouchableOpacity style={styles.pauseThrowButton} onPress={() => this.throwAPuck()}>
+              <Text style={styles.pauseThrowButtonText}>Throw a puck</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.pauseResumeButton} onPress={() => this.resumeGame()}>
+              <Text style={styles.pauseResumeButtonText}>Resume match</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        : undefined }
     </View>
   }
 }

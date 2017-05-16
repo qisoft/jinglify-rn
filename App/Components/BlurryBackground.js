@@ -1,9 +1,7 @@
 import React from 'react'
-import { View, findNodeHandle, Image} from 'react-native'
-import { BlurView } from 'react-native-blur'
+import { View, findNodeHandle, Image } from 'react-native'
 
-import { Images } from '../Themes';
-
+import { Images } from '../Themes'
 import styles from './Styles/BlurryBackgroundStyles'
 
 export default class BlurryBackground extends React.Component {
@@ -23,10 +21,6 @@ export default class BlurryBackground extends React.Component {
       <View style={styles.blurredBackground}>
         <Image source={Images.shadow} />
       </View>
-      { this.state.viewRef !== null
-        ? <BlurView viewRef={this.state.viewRef} blurRadius={10} style={styles.blurView} blurType={"light"} blurAmount={10}/>
-        : undefined
-      }
       <View style={styles.contentContainer}>
         {this.props.children}
       </View>

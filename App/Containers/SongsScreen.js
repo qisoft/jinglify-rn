@@ -56,9 +56,9 @@ class SongsScreen extends React.Component {
     return (
       <View style={styles.listRow} key={row.persistentId}>
         { row.isEditing
-          ? <TouchableOpacity onPress={() => this.props.removeSong(row) } style={styles.songDelete}>
-              <Image source={Images.delete}/>
-            </TouchableOpacity>
+          ? <TouchableOpacity onPress={() => this.props.removeSong(row)} style={styles.songDelete}>
+            <Image source={Images.delete}/>
+          </TouchableOpacity>
           : undefined }
         <Image style={styles.songArtwork} source={{ uri: row.artwork }} resizeMode={'stretch'} />
         <View style={styles.songTitleContainer}>
@@ -71,7 +71,7 @@ class SongsScreen extends React.Component {
   }
 
   renderSeparator (section, row) {
-    return <View key={section + row} style={styles.separator}></View>
+    return <View key={section + row} style={styles.separator} />
   }
 
   renderSection (data, sectionId) {
@@ -125,22 +125,21 @@ class SongsScreen extends React.Component {
         </View>
         {
           this.props.songs.length > 0
-            ? <View
-            style={styles.list}>
-            <ListView
-              dataSource={this.state.dataSource}
-              renderRow={this.renderRow.bind(this)}
-              renderSectionHeader={this.renderSection}
-              renderSeparator={this.renderSeparator}
-              enableEmptySections={false}
-            />
-          </View>
+            ? <View style={styles.list}>
+              <ListView
+                dataSource={this.state.dataSource}
+                renderRow={this.renderRow.bind(this)}
+                renderSectionHeader={this.renderSection}
+                renderSeparator={this.renderSeparator}
+                enableEmptySections={false}
+              />
+            </View>
             : <View style={styles.noSongsContainer}>
-            <Text style={styles.noSongsTitle}>You have no Jingles yet</Text>
-            <TouchableOpacity onPress={() => this.loadTracks()}>
-              <Text style={styles.noSongsButton}>Add songs</Text>
-            </TouchableOpacity>
-          </View>
+              <Text style={styles.noSongsTitle}>You have no Jingles yet</Text>
+              <TouchableOpacity onPress={() => this.loadTracks()}>
+                <Text style={styles.noSongsButton}>Add songs</Text>
+              </TouchableOpacity>
+            </View>
         }
       </View>
     </View>
