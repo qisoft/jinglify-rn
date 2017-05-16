@@ -34,6 +34,8 @@
 		282CFC621EB6772C00B00F2A /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 282CFC611EB6772C00B00F2A /* RobotoMono-Bold.ttf */; };
 		282CFD151EB89D4400B00F2A /* MockPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282CFD141EB89D4400B00F2A /* MockPlayer.swift */; };
 		282CFD371EB8A3B000B00F2A /* russian-anthem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 282CFD361EB8A3B000B00F2A /* russian-anthem.mp3 */; };
+		283624521ECB234500927E1A /* JinglifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283624511ECB234500927E1A /* JinglifyUITests.swift */; };
+		283624591ECB237300927E1A /* SwiftMonkey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283624461ECB211900927E1A /* SwiftMonkey.framework */; };
 		29B54CF63E214C008896B08F /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5257071D91CB4531813D5CC4 /* libcxxreact.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		6EC7666404284856AD4B1EF6 /* libKCKeepAwake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 382D07893BEB4304B07DAD57 /* libKCKeepAwake.a */; };
@@ -159,6 +161,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = KCKeepAwake;
+		};
+		283624451ECB211900927E1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 283624411ECB211900927E1A /* SwiftMonkey.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = OBJ_16;
+			remoteInfo = SwiftMonkey;
+		};
+		283624541ECB234500927E1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = Jinglify;
 		};
 		3DAD3E831DF850E9000B6D8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -301,6 +317,8 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		20F209F19F524C5488425E89 /* libjschelpers.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libjschelpers.a; sourceTree = "<group>"; };
 		20F5DC4CBD144C82893D287E /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
+		282C25541ECAFE6E00896624 /* JinglifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JinglifyUITests.swift; sourceTree = "<group>"; };
+		282C25561ECAFE6E00896624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		282CFBAB1EB3790400B00F2A /* Jinglify-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jinglify-Bridging-Header.h"; sourceTree = "<group>"; };
 		282CFBAC1EB3790400B00F2A /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioPlayer.swift; path = Jinglify/AudioPlayer.swift; sourceTree = "<group>"; };
 		282CFBAF1EB3794600B00F2A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -316,6 +334,10 @@
 		282CFC611EB6772C00B00F2A /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoMono-Bold.ttf"; path = "Jinglify/RobotoMono-Bold.ttf"; sourceTree = "<group>"; };
 		282CFD141EB89D4400B00F2A /* MockPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPlayer.swift; sourceTree = "<group>"; };
 		282CFD361EB8A3B000B00F2A /* russian-anthem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "russian-anthem.mp3"; path = "Jinglify/russian-anthem.mp3"; sourceTree = "<group>"; };
+		283624411ECB211900927E1A /* SwiftMonkey.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftMonkey.xcodeproj; path = SwiftMonkey/SwiftMonkey.xcodeproj; sourceTree = "<group>"; };
+		2836244F1ECB234500927E1A /* JinglifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JinglifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		283624511ECB234500927E1A /* JinglifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JinglifyUITests.swift; sourceTree = "<group>"; };
+		283624531ECB234500927E1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28A14C19731842C6A3904799 /* RNiTunes.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNiTunes.xcodeproj; path = "../node_modules/react-native-itunes/RNiTunes.xcodeproj"; sourceTree = "<group>"; };
 		382D07893BEB4304B07DAD57 /* libKCKeepAwake.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libKCKeepAwake.a; sourceTree = "<group>"; };
 		5257071D91CB4531813D5CC4 /* libcxxreact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libcxxreact.a; sourceTree = "<group>"; };
@@ -361,6 +383,14 @@
 				E4DBA860221945B283463768 /* libRNBlur.a in Frameworks */,
 				F26A51BC4D8C4E0B932D1EC8 /* libRNiTunes.a in Frameworks */,
 				6EC7666404284856AD4B1EF6 /* libKCKeepAwake.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2836244C1ECB234500927E1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283624591ECB237300927E1A /* SwiftMonkey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +498,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		282C25531ECAFE6E00896624 /* JinglifyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				282C25541ECAFE6E00896624 /* JinglifyUITests.swift */,
+				282C25561ECAFE6E00896624 /* Info.plist */,
+			);
+			path = JinglifyUITests;
+			sourceTree = "<group>";
+		};
 		282CFB801EB372BD00B00F2A /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +573,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		283624421ECB211900927E1A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				283624461ECB211900927E1A /* SwiftMonkey.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		283624501ECB234500927E1A /* JinglifyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				283624511ECB234500927E1A /* JinglifyUITests.swift */,
+				283624531ECB234500927E1A /* Info.plist */,
+			);
+			path = JinglifyUITests;
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,6 +611,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				283624411ECB211900927E1A /* SwiftMonkey.xcodeproj */,
 				282CFC561EB66F3000B00F2A /* ART.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -591,6 +648,8 @@
 			children = (
 				13B07FAE1A68108700A75B9A /* Jinglify */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				282C25531ECAFE6E00896624 /* JinglifyUITests */,
+				283624501ECB234500927E1A /* JinglifyUITests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				282CFBAE1EB3794600B00F2A /* Frameworks */,
 			);
@@ -602,6 +661,7 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* Jinglify.app */,
+				2836244F1ECB234500927E1A /* JinglifyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -627,12 +687,31 @@
 			productReference = 13B07F961A680F5B00A75B9A /* Jinglify.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2836244E1ECB234500927E1A /* JinglifyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 283624561ECB234500927E1A /* Build configuration list for PBXNativeTarget "JinglifyUITests" */;
+			buildPhases = (
+				2836244B1ECB234500927E1A /* Sources */,
+				2836244C1ECB234500927E1A /* Frameworks */,
+				2836244D1ECB234500927E1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				283624551ECB234500927E1A /* PBXTargetDependency */,
+			);
+			name = JinglifyUITests;
+			productName = JinglifyUITests;
+			productReference = 2836244F1ECB234500927E1A /* JinglifyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
@@ -640,6 +719,12 @@
 						DevelopmentTeam = NDGVZZNAQK;
 						LastSwiftMigration = 830;
 						ProvisioningStyle = Manual;
+					};
+					2836244E1ECB234500927E1A = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 29E7C29QHD;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 				};
 			};
@@ -727,10 +812,15 @@
 					ProductGroup = 282CFBFC1EB51ADA00B00F2A /* Products */;
 					ProjectRef = 28A14C19731842C6A3904799 /* RNiTunes.xcodeproj */;
 				},
+				{
+					ProductGroup = 283624421ECB211900927E1A /* Products */;
+					ProjectRef = 283624411ECB211900927E1A /* SwiftMonkey.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* Jinglify */,
+				2836244E1ECB234500927E1A /* JinglifyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -846,6 +936,13 @@
 			fileType = archive.ar;
 			path = libKCKeepAwake.a;
 			remoteRef = 282CFD601EB8BCFF00B00F2A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		283624461ECB211900927E1A /* SwiftMonkey.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftMonkey.framework;
+			remoteRef = 283624451ECB211900927E1A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
@@ -984,6 +1081,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2836244D1ECB234500927E1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1019,7 +1123,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2836244B1ECB234500927E1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283624521ECB234500927E1A /* JinglifyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		283624551ECB234500927E1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* Jinglify */;
+			targetProxy = 283624541ECB234500927E1A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
@@ -1110,6 +1230,55 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Jinglify-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		283624571ECB234500927E1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 29E7C29QHD;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = JinglifyUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qisoft.JinglifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1e2d4c23-67cb-4a5b-bb6a-8b0f44e8005c";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Jinglify;
+			};
+			name = Debug;
+		};
+		283624581ECB234500927E1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 29E7C29QHD;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = JinglifyUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qisoft.JinglifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1e2d4c23-67cb-4a5b-bb6a-8b0f44e8005c";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Jinglify;
 			};
 			name = Release;
 		};
@@ -1204,6 +1373,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		283624561ECB234500927E1A /* Build configuration list for PBXNativeTarget "JinglifyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				283624571ECB234500927E1A /* Debug */,
+				283624581ECB234500927E1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Jinglify" */ = {
 			isa = XCConfigurationList;

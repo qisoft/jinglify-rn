@@ -31,9 +31,11 @@ class GetStartedScreen extends Component
             <BigBlueButton onPress={() => NavigationActions.songs()} title={"Jingles"} subtitleNumber={`${songsCount}`} subtitleText={"songs"} />
           </BlurryBackground>
         </View>
-        <StepperSetting title={"Match time"} onChange={setMatchTime} value={matchTime} subtitleText={"minutes"} />
-        <ShortSeparator/>
-        <StepperSetting title={"Periods"} onChange={setPeriodsCount} value={periodsCount} subtitleText={"periods"} />
+        <View elevation={21}>
+          <StepperSetting title={"Match time"} onChange={setMatchTime} value={matchTime} subtitleText={"minutes"} />
+          <ShortSeparator/>
+          <StepperSetting title={"Periods"} onChange={setPeriodsCount} value={periodsCount} subtitleText={"periods"} />
+        </View>
         <View style={styles.redButtonContainer}>
           <RedButton disabled={songsCount === 0 && !DeviceInfo.isEmulator()} onPress={() => NavigationActions.game()} style={styles.redButton} title="Start a match" />
         </View>

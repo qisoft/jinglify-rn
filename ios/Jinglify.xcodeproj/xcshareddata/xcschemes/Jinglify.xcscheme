@@ -66,6 +66,16 @@
                ReferencedContainer = "container:Jinglify.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "282C25511ECAFE6E00896624"
+               BuildableName = "JinglifyUITests.xctest"
+               BlueprintName = "JinglifyUITests"
+               ReferencedContainer = "container:Jinglify.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

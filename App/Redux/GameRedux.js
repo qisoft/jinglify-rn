@@ -5,7 +5,8 @@ const { Types, Creators } = createActions({
   setMatchTimeLeft: ['matchTimeLeft'],
   setCurrentPeriod: ['currentPeriod'],
   setTotalMatchTime: ['totalMatchTime'],
-  setStatus: ['status']
+  setStatus: ['status'],
+  setPaused: ['isPaused']
 })
 
 export const GameTypes = Types
@@ -17,7 +18,8 @@ export const INITIAL_STATE = Immutable({
   matchTimeLeft: 0,
   currentPeriod: 1,
   totalMatchTime: 0,
-  status: ''
+  status: '',
+  isPaused: false
 })
 
 /* --- Reducers --- */
@@ -34,9 +36,13 @@ export const setTotalMatchTime = (state, { totalMatchTime }) =>
 export const setStatus = (state, { status }) =>
   state.merge({ status: status })
 
+export const setPaused = (state, { isPaused }) =>
+  state.merge({ isPaused: isPaused })
+
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.SET_MATCH_TIME_LEFT]: setMatchTimeLeft,
   [Types.SET_CURRENT_PERIOD]: setCurrentPeriod,
   [Types.SET_TOTAL_MATCH_TIME]: setTotalMatchTime,
-  [Types.SET_STATUS]: setStatus
+  [Types.SET_STATUS]: setStatus,
+  [Types.SET_PAUSED]: setPaused
 })

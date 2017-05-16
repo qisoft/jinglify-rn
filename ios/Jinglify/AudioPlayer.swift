@@ -17,7 +17,8 @@ class AudioPlayer : NSObject, MPMediaPickerControllerDelegate {
   private var isFading = false
   private var jinglePlayer: JinglePlayer?
   private var callback: RCTResponseSenderBlock?
-  
+  private let playbackUrlSeparator = "::::"
+  private let playbackUrlScheme = "jingle://"
   private var beepTimer: Timer?
   private var playerTimer: Timer?
   
@@ -62,6 +63,7 @@ class AudioPlayer : NSObject, MPMediaPickerControllerDelegate {
   
   private func transformMediaItem(item: MPMediaItem) -> Dictionary<String, Any> {
     return [
+      "playbackUrl": "jingle://\(item.artist ?? "")\(self.playbackUrlSeparator)\(item.title ?? "")",
       "title": item.title ?? "",
       "artist": item.artist ?? "",
       "persistentId": item.persistentID,
@@ -81,7 +83,10 @@ class AudioPlayer : NSObject, MPMediaPickerControllerDelegate {
     return "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
   }
   
-  @objc(changeSong:artistTitle:) func changeSong(songTitle: NSString, artistTitle: NSString) {
+  @objc(changeSong:) func changeSong(playbackUrl: NSString) {
+    let parts = playbackUrl.replacingOccurrences(of: self.playbackUrlScheme, with: "").components(separatedBy: "::::")
+    let artistTitle = parts[0]
+    let songTitle = parts[1]
     let query = MPMediaQuery()
     query.addFilterPredicate(MPMediaPropertyPredicate(value: songTitle,
                                                       forProperty: MPMediaItemPropertyTitle))

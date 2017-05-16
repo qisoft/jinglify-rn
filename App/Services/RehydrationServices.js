@@ -2,11 +2,15 @@ import ReduxPersist from '../Config/ReduxPersist'
 import { AsyncStorage } from 'react-native'
 import { persistStore } from 'redux-persist'
 import gameSettingsActions from '../Redux/GameSettingsRedux'
+import gameActions from '../Redux/GameRedux'
 
 const updateReducers = (store: Object) => {
   const reducerVersion = ReduxPersist.reducerVersion
   const config = ReduxPersist.storeConfig
-  const startup = () => store.dispatch(gameSettingsActions.setEditingState(false))
+  const startup = () => {
+    store.dispatch(gameSettingsActions.setEditingState(false))
+    store.dispatch(gameActions.setPaused(false))
+  }
 
   // Check to ensure latest reducer version
   AsyncStorage.getItem('reducerVersion').then((localVersion) => {

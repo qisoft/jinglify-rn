@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, ListView, Image, LayoutAnimation, NativeModules } from 'react-native'
 import { connect } from 'react-redux'
-import * as Animatable from 'react-native-animatable'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 
 import styles from './Styles/SongsScreenStyles'
@@ -16,7 +15,7 @@ class SongsScreen extends React.Component {
   }
   constructor (props) {
     super(props)
-    const rowHasChanged = (r1, r2) => (r1.artist !== r2.artist && r1.title !== r2.title) || r1.isEditing !== r2.isEditing
+    const rowHasChanged = (r1, r2) => (r1.playbackUrl && r2.playbackUrl) || r1.isEditing !== r2.isEditing
     const sectionHeaderHasChanged = (s1, s2) => s1 !== s2
     const ds = new ListView.DataSource({ rowHasChanged, sectionHeaderHasChanged })
     let dataBlob = this.createBlobForSongs(props.protectedSongs, props.nonProtectedSongs)
@@ -85,7 +84,9 @@ class SongsScreen extends React.Component {
 
   loadTracks () {
     NativeModules.AudioPlayer.getTracks((err, tracks) => {
-      this.props.addSongs(tracks)
+      if (err === null) {
+        this.props.addSongs(tracks)
+      }
     })
   }
 

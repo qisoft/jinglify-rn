@@ -1,3 +1,4 @@
+import { Platform } from 'react-native'
 import Fonts from './Fonts'
 import Metrics from './Metrics'
 import Colors from './Colors'
@@ -14,7 +15,10 @@ const ApplicationStyles = {
     container: {
       flex: 1,
       flexDirection: 'column',
-      paddingTop: Metrics.baseMargin * 4,
+      paddingTop: Platform.select({
+        ios: Metrics.baseMargin * 4,
+        android: Metrics.baseMargin * 4 - 25
+      }),
       backgroundColor: Colors.transparent
     },
     header: {

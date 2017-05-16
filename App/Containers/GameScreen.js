@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppState, View, Text, TouchableOpacity, Alert, LayoutAnimation } from 'react-native'
+import { AppState, View, Text, TouchableOpacity, Alert, Image, LayoutAnimation, findNodeHandle } from 'react-native'
 import { connect } from 'react-redux'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import { Actions as NavigationActions } from 'react-native-router-flux'
@@ -7,8 +7,9 @@ import { BlurView } from 'react-native-blur'
 import KeepAwake from 'react-native-keep-awake'
 
 import Game from '../Services/GameService'
+import gameActions from '../Redux/GameRedux'
 import Utils from '../Services/Utils'
-import { Colors } from '../Themes'
+import { Colors, Images } from '../Themes'
 import styles from './Styles/GameScreenStyles.js'
 
 class GameScreen extends React.Component {
@@ -23,7 +24,8 @@ class GameScreen extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      isPaused: false
+      isPaused: false,
+      blurredRef: 0
     }
   }
 
@@ -37,18 +39,21 @@ class GameScreen extends React.Component {
   pauseGame () {
     LayoutAnimation.easeInEaseOut()
     this.setState({ isPaused: true })
+    this.props.setPaused(true)
     this.game.pauseGame()
   }
 
   resumeGame () {
     LayoutAnimation.easeInEaseOut()
     this.setState({ isPaused: false })
+    this.props.setPaused(false)
     this.game.resumeGame()
   }
 
   throwAPuck () {
     LayoutAnimation.easeInEaseOut()
     this.setState({ isPaused: false })
+    this.props.setPaused(false)
     this.game.throwAPuck()
   }
 
@@ -78,9 +83,15 @@ class GameScreen extends React.Component {
     let secondsLeft = Utils.pad(this.props.timeLeft % 60)
     let progress = ((cleanMatchTime - timeLeft) / cleanMatchTime) * 100
     return <View style={styles.mainContainer}>
-      <View style={styles.container}>
+      <View style={styles.container} ref={x => {
+        let ref = findNodeHandle(x)
+        console.log(ref)
+        if (this.state.blurredRef !== ref && ref !== 0 && ref !== null) {
+          this.setState({blurredRef: ref})
+        }
+      }}>
         <View style={styles.section}>
-          <View style={styles.header}>
+          <View style={[styles.header]}>
             <Text style={styles.titleText}>{ currentPeriod === 0 ? 'Overtime' : `Period #${currentPeriod}` }</Text>
             <TouchableOpacity onPress={() => this.endGame()}>
                 <Text style={styles.buttonRed}>End match</Text>
@@ -109,19 +120,22 @@ class GameScreen extends React.Component {
           <Text style={styles.statusText}>{status}</Text>
         </View>
       </View>
-      { this.state.isPaused
-        ? <View style={styles.pauseScreen}>
-          <BlurView style={styles.pauseBlur} blurAmount={10} />
-          <View style={styles.pauseMenuContainer}>
-            <Text style={styles.pauseTitle}>Paused</Text>
-            <TouchableOpacity style={styles.pauseThrowButton} onPress={() => this.throwAPuck()}>
-              <Text style={styles.pauseThrowButtonText}>Throw a puck</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.pauseResumeButton} onPress={() => this.resumeGame()}>
-              <Text style={styles.pauseResumeButtonText}>Resume match</Text>
-            </TouchableOpacity>
-          </View>
-        </View> : undefined }
+      {
+        this.state.isPaused
+          ? <View elevation={10} style={styles.pauseScreen}>
+              <BlurView downsampleFactor={1} blurRadius={10} style={[styles.pauseBlur]} viewRef={ this.state.blurredRef } blurAmount={10}/>
+              <View elevation={20} style={styles.pauseMenuContainer}>
+                <Text style={styles.pauseTitle}>Paused</Text>
+                <TouchableOpacity style={styles.pauseThrowButton} onPress={() => this.throwAPuck()}>
+                  <Text style={styles.pauseThrowButtonText}>Throw a puck</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.pauseResumeButton} onPress={() => this.resumeGame()}>
+                  <Text style={styles.pauseResumeButtonText}>Resume match</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          : undefined
+      }
     </View>
   }
 }
@@ -135,4 +149,9 @@ const mapStateToProps = (state) => ({
   cleanMatchTime: state.gameSettings.matchTime * 60
 })
 
-export default connect(mapStateToProps)(GameScreen)
+const mapDispatchToProps = (dispatch) => ({
+  setPaused: isPaused => dispatch(gameActions.setPaused(isPaused)),
+  dispatch: dispatch
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameScreen)

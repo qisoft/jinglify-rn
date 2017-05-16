@@ -12,7 +12,7 @@
 @interface RCT_EXTERN_MODULE(AudioPlayer, NSObject)
 
 RCT_EXTERN_METHOD(vibrate)
-RCT_EXTERN_METHOD(changeSong:(NSString*)songTitle artistTitle:(NSString*)artistTitle)
+RCT_EXTERN_METHOD(changeSong:(NSString*)playbackUrl)
 RCT_EXTERN_METHOD(getTracks:(RCTResponseSenderBlock)callback)
 RCT_EXTERN_METHOD(pauseJingle)
 RCT_EXTERN_METHOD(playJingle)

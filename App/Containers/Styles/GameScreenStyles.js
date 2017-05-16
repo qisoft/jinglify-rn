@@ -30,18 +30,21 @@ export default StyleSheet.create({
     backgroundColor: 'transparent'
   },
   timer: {
-    ...Fonts.style.timer
+    ...Fonts.style.timer,
+    color: Colors.title
   },
   tapToPause: {
-    ...Fonts.style.bigText
+    ...Fonts.style.bigText,
+    color: Colors.title
   },
   statusContainer: {
     backgroundColor: Colors.greyBg,
-    height: 125,
+    height: 75,
     alignItems: 'center'
   },
   statusText: {
-    ...Fonts.style.h1
+    ...Fonts.style.h1,
+    color: Colors.title
   },
   pauseScreen: {
     position: 'absolute',
@@ -76,6 +79,7 @@ export default StyleSheet.create({
   },
   pauseTitle: {
     ...Fonts.style.h1,
+    color: Colors.title,
     backgroundColor: 'transparent',
     marginTop: 24,
     marginLeft: 20,
@@ -100,5 +104,13 @@ export default StyleSheet.create({
   pauseResumeButtonText: {
     ...Fonts.style.bigButton,
     color: Colors.brand
+  },
+  blurredBackground: {
+    backgroundColor: 'transparent',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
   }
 })

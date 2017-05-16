@@ -23,10 +23,16 @@ export default class Game {
     if (song === undefined) {
       song = {
         title: 'song',
-        artist: 'mock'
+        artist: 'mock',
+        playbackUrl: 'mock'
       }
     }
-    AudioPlayer.changeSong(song.title, song.artist)
+    if (song.playbackUrl !== undefined) {
+      AudioPlayer.changeSong(song.playbackUrl)
+    } else {
+      // old ios files support
+      AudioPlayer.changeSong(`jingle://${song.artist}::::${song.title}`)
+    }
     this.currentPeriod = this.currentPeriod + 1
     this.initialBeepOffset = Game.getRandomBeepTime()
     this.totalMatchTime = this.settings.matchTime * 60 + 30 + this.initialBeepOffset
@@ -142,7 +148,7 @@ export default class Game {
     return 'Get Ready!'
   }
 
-  startOvertime() {
+  startOvertime () {
     this.isOvertime = true
     this.currentPeriod = 0
     this.dispatch(gameActions.setCurrentPeriod(this.currentPeriod))

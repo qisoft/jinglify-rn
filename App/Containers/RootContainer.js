@@ -11,17 +11,21 @@ class RootContainer extends Component {
   }
 
   render () {
+    let { isPaused } = this.props
     return (
       <View style={styles.applicationView}>
-        <StatusBar barStyle='dark-content' />
+        <StatusBar backgroundColor={isPaused ? '#666464' : 'white'} barStyle={isPaused ? 'light-content' : 'dark-content'} />
         <NavigationRouter />
       </View>
     )
   }
 }
 
+const mapStateToProps = (state) => ({
+  isPaused: state.game.isPaused
+})
 // wraps dispatch to create nicer functions to call within our component
 const mapDispatchToProps = (dispatch) => ({
 })
 
-export default connect(null, mapDispatchToProps)(RootContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(RootContainer)

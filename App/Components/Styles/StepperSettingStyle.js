@@ -8,7 +8,8 @@ export default StyleSheet.create({
     paddingLeft: 24,
     paddingRight: 24,
     paddingTop: 28,
-    paddingBottom: 28
+    paddingBottom: 28,
+    backgroundColor: Colors.white
   },
   settingContainer: {
     flex: 1,
@@ -33,16 +34,11 @@ export default StyleSheet.create({
     flexDirection: 'row'
   },
   stepperMinus: {
-    borderLeftWidth: 1,
-    borderLeftColor: Colors.brand,
-    borderTopWidth: 1,
-    borderTopColor: Colors.brand,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.brand,
+    borderWidth: 1,
+    borderColor: Colors.brand,
     borderRadius: 5,
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
-    borderRightColor: Colors.brand,
     borderRightWidth: 0.5,
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
@@ -63,10 +59,12 @@ export default StyleSheet.create({
     color: Colors.title
   },
   subtitleNumber: {
-    ...Fonts.style.textBold
+    ...Fonts.style.textBold,
+    color: Colors.title
   },
   subtitleText: {
     ...Fonts.style.text,
-    paddingLeft: 4
+    paddingLeft: 4,
+    color: Colors.title
   }
 })

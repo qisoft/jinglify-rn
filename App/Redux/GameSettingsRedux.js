@@ -45,11 +45,11 @@ export const addSongs = (state, { songs }) =>
   state.merge({
     songs: uniqBy([...state.songs, ...songs], x => `${x.artist}-${x.title}`),
     songsCount: state.songs.length + songs.length,
-    protectedSongs: songs.filter(s => s.assetUrl.length === 0).map(x => ({
+    protectedSongs: [...state.songs, ...songs].filter(s => s.assetUrl.length === 0).map(x => ({
       ...x,
       isEditing: state.songsIsEditing
     })),
-    nonProtectedSongs: songs.filter(s => s.assetUrl.length > 0).map(x => ({
+    nonProtectedSongs: [...state.songs, ...songs].filter(s => s.assetUrl.length > 0).map(x => ({
       ...x,
       isEditing: state.songsIsEditing
     }))

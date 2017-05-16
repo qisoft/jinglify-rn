@@ -21,7 +21,8 @@ const style = {
   h1: {
     fontFamily: type.base,
     fontWeight: '900',
-    fontSize: size.h1
+    fontSize: size.h1,
+    lineHeight: size.h1
   },
   h2: {
     fontFamily: type.base,

@@ -13,6 +13,7 @@ import AVFoundation
 class AvMusicPlayer: JinglePlayer {
   
   private var player: AVAudioPlayer?
+  private var fadingCurveIdx = 0
   
   func setJingle(song: MPMediaItem) {
     guard let songUrl = song.assetURL else {
@@ -49,6 +50,7 @@ class AvMusicPlayer: JinglePlayer {
   
   func fadeOutAndStop() {
     self.setupFadingTimer()
+    self.fadingCurveIdx = 0
     self.isFading = true
   }
   
@@ -77,11 +79,9 @@ class AvMusicPlayer: JinglePlayer {
   ]
   
   private var playerTimer: Timer?
-  private var fadingCurveIdx = 0
   private func setupFadingTimer(){
     playerTimer?.invalidate()
     
-    fadingCurveIdx = 0
     DispatchQueue.main.async(execute: {
       self.playerTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
     })

@@ -15,6 +15,6 @@ export default class BigBlueButton extends React.Component {
           </View>
         </View>
         <Image source={Images.next} />
-      </TouchableOpacity>
+    </TouchableOpacity>
   }
 }

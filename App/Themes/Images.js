@@ -4,7 +4,8 @@ const images = {
   plus: require('../Images/plus.png'),
   minus: require('../Images/minus.png'),
   delete: require('../Images/delete.png'),
-  add: require('../Images/add.png')
+  add: require('../Images/add.png'),
+  shadow: require('../Images/shadow.png')
 }
 
 export default images

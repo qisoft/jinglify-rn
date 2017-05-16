@@ -8,11 +8,11 @@ export default StyleSheet.create({
     height: 133
   },
   blurredBackground: {
-    backgroundColor: Colors.blurredBackground,
+    backgroundColor: 'transparent',
     top: 20,
     bottom: 0,
-    left: 20,
-    right: 24,
+    left: 0,
+    right: 0,
     position: 'absolute'
   },
   blurView: {
