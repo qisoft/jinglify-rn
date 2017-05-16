@@ -14,17 +14,17 @@ build_and_test_project:
     - xcode_7-2
     - osx_10-11
 
-publish_project:
-  stage: publish
-  script:
-    - cd ios
-    - fastlane ios beta
-  only:
-    - master
-  artifacts:
-    paths:
-    - ios/Jinglify.ipa
-  tags:
-    - ios_9-2
-    - xcode_7-2
-    - osx_10-11
+#publish_project:
+#  stage: publish
+#  script:
+#    - cd ios
+#    - fastlane ios beta
+#  only:
+#    - master
+#  artifacts:
+#    paths:
+#    - ios/Jinglify.ipa
+#  tags:
+#    - ios_9-2
+#    - xcode_7-2
+#   - osx_10-11
