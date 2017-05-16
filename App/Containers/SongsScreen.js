@@ -57,7 +57,7 @@ class SongsScreen extends React.Component {
       <View style={styles.listRow} key={row.persistentId}>
         { row.isEditing
           ? <TouchableOpacity onPress={() => this.props.removeSong(row)} style={styles.songDelete}>
-            <Image source={Images.delete}/>
+            <Image source={Images.delete} />
           </TouchableOpacity>
           : undefined }
         <Image style={styles.songArtwork} source={{ uri: row.artwork }} resizeMode={'stretch'} />

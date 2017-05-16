@@ -122,7 +122,7 @@ class GameScreen extends React.Component {
       </View>
       { this.state.isPaused
         ? <View elevation={10} style={styles.pauseScreen}>
-          <BlurView downsampleFactor={1} blurRadius={10} style={[styles.pauseBlur]} viewRef={ this.state.blurredRef } blurAmount={10}/>
+          <BlurView downsampleFactor={1} blurRadius={10} style={[styles.pauseBlur]} viewRef={this.state.blurredRef} blurAmount={10} />
           <View elevation={20} style={styles.pauseMenuContainer}>
             <Text style={styles.pauseTitle}>Paused</Text>
             <TouchableOpacity style={styles.pauseThrowButton} onPress={() => this.throwAPuck()}>

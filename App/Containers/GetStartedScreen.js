@@ -37,7 +37,7 @@ class GetStartedScreen extends Component
           <StepperSetting title={'Periods'} onChange={setPeriodsCount} value={periodsCount} subtitleText={'periods'} />
         </View>
         <View style={styles.redButtonContainer}>
-          <RedButton disabled={songsCount === 0 && !DeviceInfo.isEmulator()} onPress={() => NavigationActions.game()} style={styles.redButton} title="Start a match" />
+          <RedButton disabled={songsCount === 0 && !DeviceInfo.isEmulator()} onPress={() => NavigationActions.game()} style={styles.redButton} title='Start a match' />
         </View>
       </View>
     </View>
