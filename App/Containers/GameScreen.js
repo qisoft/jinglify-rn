@@ -5,6 +5,7 @@ import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import { BlurView } from 'react-native-blur'
 import KeepAwake from 'react-native-keep-awake'
+import VolumeSlider from 'react-native-volume-slider'
 
 import Game from '../Services/GameService'
 import gameActions from '../Redux/GameRedux'
@@ -25,7 +26,8 @@ class GameScreen extends React.Component {
     super(props)
     this.state = {
       isPaused: false,
-      blurredRef: 0
+      blurredRef: 0,
+      song: {}
     }
   }
 
@@ -61,9 +63,13 @@ class GameScreen extends React.Component {
     this.game = new Game(this.props.dispatch, this.props.state)
     this.game.startGame(() => {
       NavigationActions.pop()
-    })
+    }, song => this.onSongChange(song))
     AppState.addEventListener('change', this._handleAppStateChange)
     KeepAwake.activate()
+  }
+
+  onSongChange (song) {
+    this.setState({ song })
   }
 
   componentWillUnmount () {
@@ -97,6 +103,9 @@ class GameScreen extends React.Component {
               <Text style={styles.buttonRed}>End match</Text>
             </TouchableOpacity>
           </View>
+        </View>
+        <View style={styles.songTitleContainer}>
+          <Text style={styles.songTitle}>{this.state.song.artist} - {this.state.song.title}</Text>
         </View>
         <View style={styles.gameContainer}>
           <View style={styles.circleContainer}>
@@ -134,6 +143,7 @@ class GameScreen extends React.Component {
           </View>
         </View>
         : undefined }
+      <VolumeSlider style={{ height: 0 }} />
     </View>
   }
 }

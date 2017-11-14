@@ -4538,9 +4538,9 @@ react-native-itunes@^0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/react-native-itunes/-/react-native-itunes-0.4.3.tgz#891946b1ed4872125763edebd6cb16adc17970f9"
 
-react-native-keep-awake@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/react-native-keep-awake/-/react-native-keep-awake-2.0.4.tgz#da58b3161f1360163445c53e8c1cf411068f9a75"
+react-native-keep-awake@2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-keep-awake/-/react-native-keep-awake-2.0.6.tgz#d8eaffe0a6377cc197469d9f06c7f317225403db"
 
 react-native-mock@^0.3.1:
   version "0.3.1"
@@ -4570,6 +4570,10 @@ react-native-router-flux@3.38.0:
 react-native-tabs@^1.0.9:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/react-native-tabs/-/react-native-tabs-1.0.9.tgz#75d3c35e8b5b6970869eab282372cb32e2a782cd"
+
+react-native-volume-slider@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-volume-slider/-/react-native-volume-slider-0.5.0.tgz#60a5b2222bf77d7a7754c3bba75f3f9ad7dde4b6"
 
 react-native@0.42.0:
   version "0.42.0"

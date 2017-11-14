@@ -11,51 +11,48 @@ import MediaPlayer
 import AVFoundation
 
 class AvMusicPlayer: JinglePlayer {
-  
-  private var player: AVAudioPlayer?
+  private let player = MPMusicPlayerController.applicationMusicPlayer()
   private var fadingCurveIdx = 0
+  private var volumeView : MPVolumeView?
+  
   
   func setJingle(song: MPMediaItem) {
-    guard let songUrl = song.assetURL else {
-      return
-    }
-    do {
-      player = try AVAudioPlayer(contentsOf: songUrl)
-      player?.prepareToPlay()
-    } catch {
-      print(error)
-    }
+    player.setQueue(with: MPMediaItemCollection(items: [song]))
+    player.prepareToPlay()
   }
   
   func play() {
     if (isFading) {
       setupFadingTimer()
     }
-    player?.play()
+    player.play()
   }
   
   func pause() {
     if (isFading) {
       playerTimer?.invalidate()
     }
-    player?.pause()
+    player.pause()
   }
   
   func stop() {
-    player?.stop()
+    player.stop()
     playerTimer?.invalidate()
   }
   
   var isFading = false
   
   func fadeOutAndStop() {
+    self.initialVolume = self.player.value(forKey: "volume") as! Float
+    self.volumeView = MPVolumeView(frame: CGRect.zero)
+    UIApplication.shared.keyWindow?.addSubview(volumeView!)
     self.setupFadingTimer()
     self.fadingCurveIdx = 0
     self.isFading = true
   }
   
   //MARK: - Fading helpers
-  
+  private var initialVolume : Float = 1.0;
   private let volumeCurve : [Float] = [
     1.0,
     0.8,
@@ -96,17 +93,24 @@ class AvMusicPlayer: JinglePlayer {
     fadingCurveIdx += 1
     self.setVolume(to: volume)
     if(volume == 0){
-      self.player?.stop()
-      self.player?.currentTime = 0
+      self.player.stop()
       self.setVolume(to: 1.0)
       self.isFading = false
       self.playerTimer?.invalidate()
       self.playerTimer = nil
+      Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { (_) in
+        self.volumeView?.removeFromSuperview()
+        self.volumeView = nil
+      })
     }
   }
   
   private func setVolume(to value: Float){
-    player?.volume = value
+    if let slider = self.volumeView?.subviews.filter({ (v) -> Bool in
+      v is UISlider
+    }).first as? UISlider {
+      slider.value = value * self.initialVolume
+    }
     print("new volume is \(value)")
   }
   

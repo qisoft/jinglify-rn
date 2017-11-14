@@ -15,6 +15,7 @@ export default class Game {
     this.totalPeriods = this.settings.periodsCount >= 1 ? this.settings.periodsCount : 1
     this.isOvertime = false
     this.gameEndCallback = () => {}
+    this.onSongChange = () => {}
   }
 
   startNewPeriod () {
@@ -33,6 +34,7 @@ export default class Game {
       // old ios files support
       AudioPlayer.changeSong(`jingle://${song.artist}::::${song.title}`)
     }
+    this.onSongChange(song)
     this.currentPeriod = this.currentPeriod + 1
     this.initialBeepOffset = Game.getRandomBeepTime()
     this.totalMatchTime = this.settings.matchTime * 60 + 30 + this.initialBeepOffset
@@ -45,7 +47,8 @@ export default class Game {
     this.dispatch(gameActions.setMatchTimeLeft(this.matchTimeLeft))
   }
 
-  startGame (gameEndCallback) {
+  startGame (gameEndCallback, onSongChange) {
+    this.onSongChange = onSongChange
     this.startNewPeriod()
     this.setupGameTimer()
     this.gameEndCallback = gameEndCallback
