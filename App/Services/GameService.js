@@ -1,5 +1,6 @@
 import gameActions from '../Redux/GameRedux'
 import { NativeModules } from 'react-native'
+import Speech from 'react-native-speech'
 
 import Utils from './Utils'
 const AudioPlayer = NativeModules.AudioPlayer
@@ -191,7 +192,12 @@ export default class Game {
     } else if (timeLeft === 30) {
       this.playJingle()
     } else if (timeLeft > 59 && timeLeft < this.settings.matchTime * 60 && timeLeft % 60 === 0) {
-      AudioPlayer.beep(timeLeft / 60)
+      const minutesLeft = timeLeft / 60
+      Speech.speak({
+        text: `${minutesLeft} minute${minutesLeft > 1 ? 's' : ''} left`,
+        voice: 'en-US'
+      })
+      // AudioPlayer.beep(timeLeft / 60)
     }
   }
 }

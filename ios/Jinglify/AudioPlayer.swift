@@ -103,7 +103,7 @@ class AudioPlayer : NSObject, MPMediaPickerControllerDelegate {
       {
         print(song.albumArtist)
         print(song.assetURL)
-          jinglePlayer = song.assetURL == nil ? MusicPlayer() : AvMusicPlayer()
+          jinglePlayer = MusicPlayer()
         jinglePlayer?.setJingle(song: song)
       }
     #endif

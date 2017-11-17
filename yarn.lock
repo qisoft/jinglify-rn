@@ -4567,6 +4567,10 @@ react-native-router-flux@3.38.0:
     react-native-tabs "^1.0.9"
     react-static-container "1.0.1"
 
+react-native-speech@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-speech/-/react-native-speech-0.1.2.tgz#c16127c6a61351eeddb7878db80709f7ce6a7057"
+
 react-native-tabs@^1.0.9:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/react-native-tabs/-/react-native-tabs-1.0.9.tgz#75d3c35e8b5b6970869eab282372cb32e2a782cd"
