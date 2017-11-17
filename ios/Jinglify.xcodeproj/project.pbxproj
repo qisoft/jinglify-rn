@@ -1135,7 +1135,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = se.fastdev.jinglify;
 				PRODUCT_NAME = Jinglify;
-				PROVISIONING_PROFILE = "e645a2c1-9609-43b4-81e7-9bdbb4645487";
+				PROVISIONING_PROFILE = "41e48f47-7c8f-450e-963e-73b9a4ed15f7";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development se.fastdev.jinglify";
 				SWIFT_OBJC_BRIDGING_HEADER = "Jinglify-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

@@ -26,6 +26,12 @@ platform :ios do
     scan(scheme: "Jinglify")
   end
 
+  lane :devices do
+    register_devices(devices: {
+      "qisoft iphone x": "959fd3bf505847f78f1b991cc8fa1be6bd72a735"
+    })
+  end
+
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
