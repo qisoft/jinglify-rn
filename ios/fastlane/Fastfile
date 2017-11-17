@@ -30,6 +30,9 @@ platform :ios do
     register_devices(devices: {
       "qisoft iphone x": "959fd3bf505847f78f1b991cc8fa1be6bd72a735"
     })
+    match(
+      type: "development",
+      force: true)
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
