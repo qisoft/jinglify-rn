@@ -31,7 +31,8 @@ platform :ios do
       "qisoft iphone x": "959fd3bf505847f78f1b991cc8fa1be6bd72a735"
     })
     match(
-      type: "development",
+      type: "appstore",
+      readonly: false
       force: true)
   end
 
