@@ -32,7 +32,7 @@ platform :ios do
     })
     match(
       type: "appstore",
-      readonly: false
+      readonly: false,
       force: true)
   end
 
