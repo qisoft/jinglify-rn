@@ -18,22 +18,15 @@ class SongsScreen extends React.Component {
     const rowHasChanged = (r1, r2) => (r1.playbackUrl && r2.playbackUrl) || r1.isEditing !== r2.isEditing
     const sectionHeaderHasChanged = (s1, s2) => s1 !== s2
     const ds = new ListView.DataSource({ rowHasChanged, sectionHeaderHasChanged })
-    let dataBlob = this.createBlobForSongs(props.protectedSongs, props.nonProtectedSongs)
+    let dataBlob = this.createBlobForSongs(props.songs)
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(dataBlob)
     }
   }
 
-  createBlobForSongs (protectedSongs, nonProtectedSongs) {
+  createBlobForSongs (songs) {
     let dataBlob = {
-      nonProtected: nonProtectedSongs,
-      protected: protectedSongs
-    }
-    if (dataBlob.protected.length === 0) {
-      delete dataBlob.protected
-    }
-    if (dataBlob.nonProtected.length === 0) {
-      delete dataBlob.nonProtected
+      songs: songs
     }
     return dataBlob
   }
@@ -42,7 +35,7 @@ class SongsScreen extends React.Component {
     if (newProps.songs) {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRowsAndSections(
-          this.createBlobForSongs(newProps.protectedSongs, newProps.nonProtectedSongs))
+          this.createBlobForSongs(newProps.songs))
       })
     }
   }
@@ -56,9 +49,9 @@ class SongsScreen extends React.Component {
     return (
       <View style={styles.listRow} key={row.persistentId}>
         { row.isEditing
-          ? <TouchableOpacity onPress={() => this.props.removeSong(row) } style={styles.songDelete}>
-              <Image source={Images.delete}/>
-            </TouchableOpacity>
+          ? <TouchableOpacity onPress={() => this.props.removeSong(row)} style={styles.songDelete}>
+            <Image source={Images.delete} />
+          </TouchableOpacity>
           : undefined }
         <Image style={styles.songArtwork} source={{ uri: row.artwork }} resizeMode={'stretch'} />
         <View style={styles.songTitleContainer}>
@@ -71,15 +64,7 @@ class SongsScreen extends React.Component {
   }
 
   renderSeparator (section, row) {
-    return <View key={section + row} style={styles.separator}></View>
-  }
-
-  renderSection (data, sectionId) {
-    const sectionHeaders = {
-      protected: 'Protected',
-      nonProtected: 'Non-protected'
-    }
-    return <View style={styles.listSectionHeader}><Text style={styles.listSectionHeaderText}>{sectionHeaders[sectionId]}</Text></View>
+    return <View key={section + row} style={styles.separator} />
   }
 
   loadTracks () {
@@ -125,22 +110,20 @@ class SongsScreen extends React.Component {
         </View>
         {
           this.props.songs.length > 0
-            ? <View
-            style={styles.list}>
-            <ListView
-              dataSource={this.state.dataSource}
-              renderRow={this.renderRow.bind(this)}
-              renderSectionHeader={this.renderSection}
-              renderSeparator={this.renderSeparator}
-              enableEmptySections={false}
-            />
-          </View>
+            ? <View style={styles.list}>
+              <ListView
+                dataSource={this.state.dataSource}
+                renderRow={this.renderRow.bind(this)}
+                renderSeparator={this.renderSeparator}
+                enableEmptySections={false}
+              />
+            </View>
             : <View style={styles.noSongsContainer}>
-            <Text style={styles.noSongsTitle}>You have no Jingles yet</Text>
-            <TouchableOpacity onPress={() => this.loadTracks()}>
-              <Text style={styles.noSongsButton}>Add songs</Text>
-            </TouchableOpacity>
-          </View>
+              <Text style={styles.noSongsTitle}>You have no Jingles yet</Text>
+              <TouchableOpacity onPress={() => this.loadTracks()}>
+                <Text style={styles.noSongsButton}>Add songs</Text>
+              </TouchableOpacity>
+            </View>
         }
       </View>
     </View>
@@ -149,8 +132,6 @@ class SongsScreen extends React.Component {
 
 const mapStateToProps = (state) => ({
   songs: state.gameSettings.songs,
-  protectedSongs: state.gameSettings.protectedSongs,
-  nonProtectedSongs: state.gameSettings.nonProtectedSongs,
   isEditing: state.gameSettings.songsIsEditing
 })
 

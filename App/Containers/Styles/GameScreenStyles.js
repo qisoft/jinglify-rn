@@ -3,11 +3,20 @@ import { ApplicationStyles, Colors, Fonts } from '../../Themes/index'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
+  songTitleContainer: {
+    borderTopWidth: 1,
+    borderTopColor: Colors.separator,
+    backgroundColor: Colors.greyBg,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    paddingTop: 20
+  },
+  songTitle: {
+    ...Fonts.style.songTitle
+  },
   gameContainer: {
     backgroundColor: Colors.greyBg,
     flex: 1,
-    borderTopWidth: 1,
-    borderTopColor: Colors.separator,
     justifyContent: 'center',
     alignItems: 'center'
   },

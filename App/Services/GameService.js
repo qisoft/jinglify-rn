@@ -1,5 +1,6 @@
 import gameActions from '../Redux/GameRedux'
 import { NativeModules } from 'react-native'
+import Speech from 'react-native-speech'
 
 import Utils from './Utils'
 const AudioPlayer = NativeModules.AudioPlayer
@@ -15,6 +16,7 @@ export default class Game {
     this.totalPeriods = this.settings.periodsCount >= 1 ? this.settings.periodsCount : 1
     this.isOvertime = false
     this.gameEndCallback = () => {}
+    this.onSongChange = () => {}
   }
 
   startNewPeriod () {
@@ -33,6 +35,7 @@ export default class Game {
       // old ios files support
       AudioPlayer.changeSong(`jingle://${song.artist}::::${song.title}`)
     }
+    this.onSongChange(song)
     this.currentPeriod = this.currentPeriod + 1
     this.initialBeepOffset = Game.getRandomBeepTime()
     this.totalMatchTime = this.settings.matchTime * 60 + 30 + this.initialBeepOffset
@@ -45,7 +48,8 @@ export default class Game {
     this.dispatch(gameActions.setMatchTimeLeft(this.matchTimeLeft))
   }
 
-  startGame (gameEndCallback) {
+  startGame (gameEndCallback, onSongChange) {
+    this.onSongChange = onSongChange
     this.startNewPeriod()
     this.setupGameTimer()
     this.gameEndCallback = gameEndCallback
@@ -188,7 +192,12 @@ export default class Game {
     } else if (timeLeft === 30) {
       this.playJingle()
     } else if (timeLeft > 59 && timeLeft < this.settings.matchTime * 60 && timeLeft % 60 === 0) {
-      AudioPlayer.beep(timeLeft / 60)
+      const minutesLeft = timeLeft / 60
+      Speech.speak({
+        text: `${minutesLeft} minute${minutesLeft > 1 ? 's' : ''} left`,
+        voice: 'en-US'
+      })
+      // AudioPlayer.beep(timeLeft / 60)
     }
   }
 }

@@ -84,24 +84,28 @@ class AudioPlayer : NSObject, MPMediaPickerControllerDelegate {
   }
   
   @objc(changeSong:) func changeSong(playbackUrl: NSString) {
-    let parts = playbackUrl.replacingOccurrences(of: self.playbackUrlScheme, with: "").components(separatedBy: "::::")
-    let artistTitle = parts[0]
-    let songTitle = parts[1]
-    let query = MPMediaQuery()
-    query.addFilterPredicate(MPMediaPropertyPredicate(value: songTitle,
-                                                      forProperty: MPMediaItemPropertyTitle))
-    query.addFilterPredicate(MPMediaPropertyPredicate(value: artistTitle,
-                                                      forProperty: MPMediaItemPropertyArtist))
     
     #if (arch(i386) || arch(x86_64)) && os(iOS)
       jinglePlayer = MockPlayer()
       
     #else
-    if let song = query.items?.first
-    {
-        jinglePlayer = song.assetURL == nil ? MusicPlayer() : AvMusicPlayer()
-      jinglePlayer?.setJingle(song: song)
-    }
+      let url : String = playbackUrl as String
+      let parts = playbackUrl.replacingOccurrences(of: self.playbackUrlScheme, with: "").components(separatedBy: "::::")
+      let artistTitle = parts[0]
+      let songTitle = parts[1]
+      let query = MPMediaQuery()
+      query.addFilterPredicate(MPMediaPropertyPredicate(value: songTitle,
+                                                        forProperty: MPMediaItemPropertyTitle))
+      query.addFilterPredicate(MPMediaPropertyPredicate(value: artistTitle,
+                                                        forProperty: MPMediaItemPropertyArtist))
+      let items = query.items
+      if let song = items?.first
+      {
+        print(song.albumArtist)
+        print(song.assetURL)
+          jinglePlayer = MusicPlayer()
+        jinglePlayer?.setJingle(song: song)
+      }
     #endif
   }
   
