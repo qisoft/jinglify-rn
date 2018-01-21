@@ -1,8 +1,8 @@
-import gameActions from '../Redux/GameRedux'
+import gameActions from '../screens/gameScreen/redux/index'
 import { NativeModules } from 'react-native'
 import Speech from 'react-native-speech'
 
-import Utils from './Utils'
+import Utils from './utils'
 const AudioPlayer = NativeModules.AudioPlayer
 
 export default class Game {

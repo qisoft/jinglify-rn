@@ -1,22 +1,15 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { autoRehydrate } from 'redux-persist'
-import Config from '../Config/DebugConfig'
-import createSagaMiddleware from 'redux-saga'
-import RehydrationServices from '../Services/RehydrationServices'
-import ReduxPersist from '../Config/ReduxPersist'
+import Config from '../config/DebugConfig'
+import RehydrationServices from '../services/rehydrationServices'
+import ReduxPersist from '../config/ReduxPersist'
 
 // creates the store
-export default (rootReducer, rootSaga) => {
+export default (rootReducer) => {
   /* ------------- Redux Configuration ------------- */
 
   const middleware = []
   const enhancers = []
-
-  /* ------------- Saga Middleware ------------- */
-
-  const sagaMonitor = __DEV__ ? console.tron.createSagaMonitor() : null
-  const sagaMiddleware = createSagaMiddleware({ sagaMonitor })
-  middleware.push(sagaMiddleware)
 
   /* ------------- Assemble Middleware ------------- */
 
@@ -37,9 +30,6 @@ export default (rootReducer, rootSaga) => {
   if (ReduxPersist.active) {
     RehydrationServices.updateReducers(store)
   }
-
-  // kick off root saga
-  sagaMiddleware.run(rootSaga)
 
   return store
 }

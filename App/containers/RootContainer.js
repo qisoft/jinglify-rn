@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, StatusBar } from 'react-native'
-import NavigationRouter from '../Navigation/NavigationRouter'
+import NavigationRouter from '../navigation/NavigationRouter'
 import { connect } from 'react-redux'
 
 // Styles

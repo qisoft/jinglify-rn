@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, TouchableOpacity, Text, Image } from 'react-native'
 
-import styles from './styles/BigBlueButtonStyles'
-import { Images } from '../themes'
+import styles from './styles'
+import { Images } from '../../theme'
 export default class BigBlueButton extends React.Component {
   render () {
     return <TouchableOpacity style={styles.blueButton} onPress={this.props.onPress}>

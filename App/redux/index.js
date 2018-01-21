@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux'
-import configureStore from './CreateStore'
-import rootSaga from '../Sagas/'
+import configureStore from './createStore'
 
 export default () => {
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
-    gameSettings: require('./GameSettingsRedux').reducer,
-    game: require('./GameRedux').reducer
+    gameSettings: require('../screens/getStartedScreen/redux').reducer,
+    songs: require('../screens/songsScreen/redux').reducer,
+    game: require('../screens/gameScreen/redux').reducer
   })
 
-  return configureStore(rootReducer, rootSaga)
+  return configureStore(rootReducer)
 }
 

@@ -4,28 +4,27 @@ import { connect } from 'react-redux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import DeviceInfo from 'react-native-device-info'
 
-import BigBlueButton from '../Components/BigBlueButton'
+import BigBlueButton from '../../../components/BigBlueButton/index'
+import { Screen, Container, Section, Header } from '../../../components';
 
-import styles from './Styles/GetStartedScreenStyles'
-import BlurryBackground from '../Components/BlurryBackground'
-import StepperSetting from '../Components/StepperSetting'
-import ShortSeparator from '../Components/ShortSeparator'
-import RedButton from '../Components/RedButton'
+import styles from './GetStartedScreenStyles'
+import BlurryBackground from '../../../components/BlurryBackground/index'
+import StepperSetting from '../../../components/StepperSetting/index'
+import ShortSeparator from '../../../components/ShortSeparator/index'
+import RedButton from '../../../components/RedButton/index'
 
-import settingsActions from '../Redux/GameSettingsRedux'
+import settingsActions from '../redux'
 class GetStartedScreen extends Component
 {
   render () {
     let { matchTime, songsCount, periodsCount } = this.props
     let { setMatchTime, setPeriodsCount } = this.props
 
-    return <View style={styles.mainContainer}>
-      <View style={styles.container}>
-        <View style={styles.section}>
-          <View style={styles.header}>
-            <Text style={styles.titleText}>{'Get started'}</Text>
-          </View>
-        </View>
+    return <Screen>
+      <Container>
+        <Section style={styles.section}>
+          <Header title={'Get started'} />
+        </Section>
         <View style={{ marginTop: 10 }}>
           <BlurryBackground>
             <BigBlueButton onPress={() => NavigationActions.songs()} title={'Jingles'} subtitleNumber={`${songsCount}`} subtitleText={'songs'} />
@@ -39,13 +38,13 @@ class GetStartedScreen extends Component
         <View style={styles.redButtonContainer}>
           <RedButton disabled={songsCount === 0 && !DeviceInfo.isEmulator()} onPress={() => NavigationActions.game()} style={styles.redButton} title='Start a match' />
         </View>
-      </View>
-    </View>
+      </Container>
+    </Screen>
   }
 }
 
 const mapStateToProps = (state) => ({
-  songsCount: state.gameSettings.songsCount,
+  songsCount: state.songs.songsCount,
   matchTime: state.gameSettings.matchTime,
   periodsCount: state.gameSettings.periodsCount
 })

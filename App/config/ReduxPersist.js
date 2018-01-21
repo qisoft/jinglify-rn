@@ -1,4 +1,4 @@
-import immutablePersistenceTransform from '../Services/ImmutablePersistenceTransform'
+import immutablePersistenceTransform from '../services/immutablePersistenceTransform'
 import { AsyncStorage } from 'react-native'
 
 const REDUX_PERSIST = {

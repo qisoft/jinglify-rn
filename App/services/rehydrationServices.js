@@ -1,14 +1,14 @@
-import ReduxPersist from '../Config/ReduxPersist'
+import ReduxPersist from '../config/ReduxPersist'
 import { AsyncStorage } from 'react-native'
 import { persistStore } from 'redux-persist'
-import gameSettingsActions from '../Redux/GameSettingsRedux'
-import gameActions from '../Redux/GameRedux'
+import songsAction from '../screens/songsScreen/redux'
+import gameActions from '../screens/gameScreen/redux'
 
 const updateReducers = (store: Object) => {
   const reducerVersion = ReduxPersist.reducerVersion
   const config = ReduxPersist.storeConfig
   const startup = () => {
-    store.dispatch(gameSettingsActions.setEditingState(false))
+    store.dispatch(songsAction.setEditingState(false))
     store.dispatch(gameActions.setPaused(false))
   }
 

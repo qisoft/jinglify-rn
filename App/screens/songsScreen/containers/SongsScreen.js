@@ -1,11 +1,13 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, ListView, Image, LayoutAnimation, NativeModules } from 'react-native'
+import { View, Text, TouchableOpacity, ListView, LayoutAnimation, NativeModules } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 
-import styles from './Styles/SongsScreenStyles'
-import gameSettingsActions from '../Redux/GameSettingsRedux'
-import { Images } from '../Themes'
+import styles from './SongsScreenStyles'
+import songsActions from '../redux';
+import { Screen, Container, Section, Header } from '../../../components';
+
+import { SongRow, Separator, NoSongs, EditButton } from '../components'
 
 class SongsScreen extends React.Component {
   static get defaultProps () {
@@ -46,25 +48,11 @@ class SongsScreen extends React.Component {
   }
 
   renderRow (row) {
-    return (
-      <View style={styles.listRow} key={row.persistentId}>
-        { row.isEditing
-          ? <TouchableOpacity onPress={() => this.props.removeSong(row)} style={styles.songDelete}>
-            <Image source={Images.delete} />
-          </TouchableOpacity>
-          : undefined }
-        <Image style={styles.songArtwork} source={{ uri: row.artwork }} resizeMode={'stretch'} />
-        <View style={styles.songTitleContainer}>
-          <Text style={styles.songTitle}>{row.title}</Text>
-          <Text style={styles.songArtist}>{row.artist}</Text>
-          <Text style={styles.songArtist}>{row.albumTitle}</Text>
-        </View>
-      </View>
-    )
+    return <SongRow row={row} removeSong={this.props.removeSong} />
   }
 
   renderSeparator (section, row) {
-    return <View key={section + row} style={styles.separator} />
+    return <Separator section={section} row={row} />
   }
 
   loadTracks () {
@@ -76,25 +64,21 @@ class SongsScreen extends React.Component {
   }
 
   renderEditButton () {
-    if (this.props.songs.length > 0) {
-      if (this.props.isEditing) {
-        return <TouchableOpacity style={styles.addMoreSongs} onPress={() => this.loadTracks()}>
-          <Image source={Images.add} /><Text style={styles.button}> Add more songs</Text>
-        </TouchableOpacity>
-      }
-      return <TouchableOpacity onPress={() => this.changeEditingState(true)}>
-        <Text style={styles.button}>Edit</Text>
-      </TouchableOpacity>
+    if(this.props.songs.length > 0) {
+      return <EditButton
+        isEditing={this.props.isEditing}
+        loadTracks={this.loadTracks}
+        changeEditingState={this.props.changeEditingState}
+      />;
     }
-    return undefined
+    return undefined;
   }
 
   render () {
-    return <View style={styles.mainContainer}>
-      <View style={styles.container}>
-        <View style={styles.section}>
-          <View style={styles.header}>
-            <Text style={styles.titleText}>Jingles</Text>
+    return <Screen>
+      <Container>
+        <Section>
+          <Header title={'Jingles'}>
             { !this.props.isEditing
               ? <TouchableOpacity onPress={() => NavigationActions.pop()}>
                 <Text style={styles.buttonRed}>Close</Text>
@@ -103,11 +87,11 @@ class SongsScreen extends React.Component {
                 <Text style={[styles.button, styles.doneButton]}>Done</Text>
               </TouchableOpacity>
             }
-          </View>
-        </View>
-        <View style={styles.section}>
+          </Header>
+        </Section>
+        <Section>
           { this.renderEditButton() }
-        </View>
+        </Section>
         {
           this.props.songs.length > 0
             ? <View style={styles.list}>
@@ -118,27 +102,22 @@ class SongsScreen extends React.Component {
                 enableEmptySections={false}
               />
             </View>
-            : <View style={styles.noSongsContainer}>
-              <Text style={styles.noSongsTitle}>You have no Jingles yet</Text>
-              <TouchableOpacity onPress={() => this.loadTracks()}>
-                <Text style={styles.noSongsButton}>Add songs</Text>
-              </TouchableOpacity>
-            </View>
+            : <NoSongs loadTracks={this.loadTracks} />
         }
-      </View>
-    </View>
+      </Container>
+    </Screen>
   }
 }
 
 const mapStateToProps = (state) => ({
-  songs: state.gameSettings.songs,
-  isEditing: state.gameSettings.songsIsEditing
+  songs: state.songs.songs,
+  isEditing: state.songs.songsIsEditing
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  addSongs: (songs) => dispatch(gameSettingsActions.addSongs(songs)),
-  removeSong: (song) => dispatch(gameSettingsActions.removeSong(song)),
-  setEditingState: (isEditing) => dispatch(gameSettingsActions.setEditingState(isEditing))
+  addSongs: (songs) => dispatch(songsActions.addSongs(songs)),
+  removeSong: (song) => dispatch(songsActions.removeSong(song)),
+  setEditingState: (isEditing) => dispatch(songsActions.setEditingState(isEditing))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongsScreen)

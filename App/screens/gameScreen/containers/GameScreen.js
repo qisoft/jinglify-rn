@@ -6,11 +6,12 @@ import { Actions as NavigationActions } from 'react-native-router-flux'
 import { BlurView } from 'react-native-blur'
 import KeepAwake from 'react-native-keep-awake'
 
-import Game from '../services/gameService'
-import gameActions from '../Redux/GameRedux'
-import Utils from '../services/utils'
-import { Colors } from '../Themes'
-import styles from './Styles/GameScreenStyles.js'
+import Game from '../../../services/gameService'
+import gameActions from '../redux'
+import Utils from '../../../services/utils'
+import { Colors } from '../../../theme'
+import styles from './GameScreenStyles.js'
+import { Screen, Container, Section } from '../../../components';
 
 class GameScreen extends React.Component {
   static get defaultProps () {
@@ -87,22 +88,21 @@ class GameScreen extends React.Component {
     let minutesLeft = Utils.pad(Math.floor(timeLeft / 60))
     let secondsLeft = Utils.pad(this.props.timeLeft % 60)
     let progress = ((cleanMatchTime - timeLeft) / cleanMatchTime) * 100
-    return <View style={styles.mainContainer}>
-      <View style={styles.container} ref={x => {
+    return <Screen>
+      <Container style={styles.container} ref={x => {
         let ref = findNodeHandle(x)
-        console.log(ref)
         if (this.state.blurredRef !== ref && ref !== 0 && ref !== null) {
           this.setState({blurredRef: ref})
         }
       }}>
-        <View style={styles.section}>
+        <Section>
           <View style={[styles.header]}>
             <Text style={styles.titleText}>{ currentPeriod === 0 ? 'Overtime' : `Period #${currentPeriod}` }</Text>
             <TouchableOpacity onPress={() => this.endGame()}>
               <Text style={styles.buttonRed}>End match</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </Section>
         <View style={styles.songTitleContainer}>
           <Text style={styles.songTitle}>{this.state.song.artist} - {this.state.song.title}</Text>
         </View>
@@ -127,7 +127,7 @@ class GameScreen extends React.Component {
         <View style={styles.statusContainer}>
           <Text style={styles.statusText}>{status}</Text>
         </View>
-      </View>
+      </Container>
       { this.state.isPaused
         ? <View elevation={10} style={styles.pauseScreen}>
           <BlurView downsampleFactor={1} blurRadius={10} style={[styles.pauseBlur]} viewRef={this.state.blurredRef} blurAmount={10} />
@@ -142,7 +142,7 @@ class GameScreen extends React.Component {
           </View>
         </View>
         : undefined }
-    </View>
+    </Screen>
   }
 }
 

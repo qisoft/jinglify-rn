@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Scene, Router } from 'react-native-router-flux'
 
 // screens identified by the router
-import GetStartedScreen from '../Containers/GetStartedScreen'
-import SongsScreen from '../Containers/SongsScreen'
-import GameScreen from '../Containers/GameScreen'
+import GetStartedScreen from '../screens/getStartedScreen/containers/GetStartedScreen'
+import SongsScreen from '../screens/songsScreen/containers/SongsScreen'
+import GameScreen from '../screens/gameScreen/containers/GameScreen'
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux
 ***************************/

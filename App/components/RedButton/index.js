@@ -1,7 +1,6 @@
 import React from 'react'
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
-
-import { Colors, Fonts } from '../themes'
+import { View, TouchableOpacity, Text } from 'react-native'
+import styles from './styles'
 
 export default class RedButton extends React.Component {
   render () {
@@ -13,17 +12,3 @@ export default class RedButton extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: Colors.red,
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    flex: 1
-  },
-  text: {
-    color: Colors.white,
-    ...Fonts.medium
-  }
-})
