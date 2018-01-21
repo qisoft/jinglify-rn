@@ -39,6 +39,7 @@
 		6EC7666404284856AD4B1EF6 /* libKCKeepAwake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 382D07893BEB4304B07DAD57 /* libKCKeepAwake.a */; };
 		779727A5BF47459E9B1E5E52 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F5DC4CBD144C82893D287E /* libRNDeviceInfo.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		9E8D1FDE90144B7CBDCE5002 /* libRNQuickAction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A835C7DEE0D4A328F5A97A0 /* libRNQuickAction.a */; };
 		B5E83F18D6124722822DF364 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6084DE859B394B9F9778147D /* libReactNativeConfig.a */; };
 		D65249404B9D4AB48F88AB1C /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F209F19F524C5488425E89 /* libjschelpers.a */; };
 		DBDB942AA50D4758852F3B51 /* libSpeechSynthesizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF95D03B90F4404593AFA64A /* libSpeechSynthesizer.a */; };
@@ -167,6 +168,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = OBJ_16;
 			remoteInfo = SwiftMonkey;
+		};
+		28A14A411FD002D3001B5CDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3DA083EF7B5482C8213514D /* RNQuickAction.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 91090D8B1BB6C934009AE358;
+			remoteInfo = RNQuickAction;
 		};
 		28DF60191FBF891200596F21 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -351,6 +359,7 @@
 		6084DE859B394B9F9778147D /* libReactNativeConfig.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeConfig.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		8A835C7DEE0D4A328F5A97A0 /* libRNQuickAction.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNQuickAction.a; sourceTree = "<group>"; };
 		8D33D89B169A476EAAF8AF8F /* KCKeepAwake.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = KCKeepAwake.xcodeproj; path = "../node_modules/react-native-keep-awake/ios/KCKeepAwake.xcodeproj"; sourceTree = "<group>"; };
 		988B1D7F1FBE4B2DBE2A5317 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 		B212DE5DF80340BEBA52D79E /* libRNVolumeSlider.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVolumeSlider.a; sourceTree = "<group>"; };
@@ -360,6 +369,7 @@
 		CBF7FC5920F64B378ECAFA88 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		D5A4BCC4AC9F4E329BB67F26 /* libReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReact.a; sourceTree = "<group>"; };
 		D6063369932644E4BC271339 /* libRNiTunes.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNiTunes.a; sourceTree = "<group>"; };
+		E3DA083EF7B5482C8213514D /* RNQuickAction.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNQuickAction.xcodeproj; path = "../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction.xcodeproj"; sourceTree = "<group>"; };
 		FF97E85B53004694B51990A7 /* RNVolumeSlider.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVolumeSlider.xcodeproj; path = "../node_modules/react-native-volume-slider/ios/RNVolumeSlider.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -393,6 +403,7 @@
 				6EC7666404284856AD4B1EF6 /* libKCKeepAwake.a in Frameworks */,
 				DBDB942AA50D4758852F3B51 /* libSpeechSynthesizer.a in Frameworks */,
 				4F4D487806AF4F9CAFA929CB /* libRNVolumeSlider.a in Frameworks */,
+				9E8D1FDE90144B7CBDCE5002 /* libRNQuickAction.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +602,14 @@
 			path = JinglifyUITests;
 			sourceTree = "<group>";
 		};
+		28A14A3E1FD002D3001B5CDF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28A14A421FD002D3001B5CDF /* libRNQuickAction.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		28DF60141FBF891100596F21 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,6 +640,7 @@
 				382D07893BEB4304B07DAD57 /* libKCKeepAwake.a */,
 				BF95D03B90F4404593AFA64A /* libSpeechSynthesizer.a */,
 				B212DE5DF80340BEBA52D79E /* libRNVolumeSlider.a */,
+				8A835C7DEE0D4A328F5A97A0 /* libRNQuickAction.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -667,6 +687,7 @@
 				8D33D89B169A476EAAF8AF8F /* KCKeepAwake.xcodeproj */,
 				2619B548D39841EE8DF362BC /* SpeechSynthesizer.xcodeproj */,
 				FF97E85B53004694B51990A7 /* RNVolumeSlider.xcodeproj */,
+				E3DA083EF7B5482C8213514D /* RNQuickAction.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -737,7 +758,7 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = NDGVZZNAQK;
 						LastSwiftMigration = 830;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -824,6 +845,10 @@
 				{
 					ProductGroup = 282CFBFC1EB51ADA00B00F2A /* Products */;
 					ProjectRef = 28A14C19731842C6A3904799 /* RNiTunes.xcodeproj */;
+				},
+				{
+					ProductGroup = 28A14A3E1FD002D3001B5CDF /* Products */;
+					ProjectRef = E3DA083EF7B5482C8213514D /* RNQuickAction.xcodeproj */;
 				},
 				{
 					ProductGroup = 28DF60161FBF891100596F21 /* Products */;
@@ -963,6 +988,13 @@
 			fileType = wrapper.framework;
 			path = SwiftMonkey.framework;
 			remoteRef = 283624451ECB211900927E1A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		28A14A421FD002D3001B5CDF /* libRNQuickAction.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNQuickAction.a;
+			remoteRef = 28A14A411FD002D3001B5CDF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		28DF601A1FBF891200596F21 /* libRNVolumeSlider.a */ = {
@@ -1169,9 +1201,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = NDGVZZNAQK;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
@@ -1182,12 +1216,14 @@
 					"$(SRCROOT)/../node_modules/react-native-keep-awake/ios",
 					"$(SRCROOT)/../node_modules/react-native-speech",
 					"$(SRCROOT)/../node_modules/react-native-volume-slider/ios/RNVolumeSlider",
+					"$(SRCROOT)/../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction",
 				);
 				INFOPLIST_FILE = Jinglify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/Jinglify\"",
 					"\"$(SRCROOT)/Jinglify\"",
 					"\"$(SRCROOT)/Jinglify\"",
 					"\"$(SRCROOT)/Jinglify\"",
@@ -1199,8 +1235,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = se.fastdev.jinglify;
 				PRODUCT_NAME = Jinglify;
-				PROVISIONING_PROFILE = "41e48f47-7c8f-450e-963e-73b9a4ed15f7";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development se.fastdev.jinglify";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Jinglify-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1213,9 +1249,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = NDGVZZNAQK;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
@@ -1226,12 +1263,14 @@
 					"$(SRCROOT)/../node_modules/react-native-keep-awake/ios",
 					"$(SRCROOT)/../node_modules/react-native-speech",
 					"$(SRCROOT)/../node_modules/react-native-volume-slider/ios/RNVolumeSlider",
+					"$(SRCROOT)/../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction",
 				);
 				INFOPLIST_FILE = Jinglify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/Jinglify\"",
 					"\"$(SRCROOT)/Jinglify\"",
 					"\"$(SRCROOT)/Jinglify\"",
 					"\"$(SRCROOT)/Jinglify\"",
@@ -1243,8 +1282,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = se.fastdev.jinglify;
 				PRODUCT_NAME = Jinglify;
-				PROVISIONING_PROFILE = "1e2d4c23-67cb-4a5b-bb6a-8b0f44e8005c";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore se.fastdev.jinglify";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Jinglify-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
