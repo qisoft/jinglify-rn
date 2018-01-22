@@ -24,6 +24,12 @@ const updateReducers = (store: Object) => {
         preview: 'Reducer Version Change Detected',
         important: true
       })
+
+      // migrate from v.4 to v.5 store
+      if (localVersion === '4' && reducerVersion === '5') {
+        const { gameSetting } = store.getState();
+        store.dispatch(songsAction.addSongs(gameSetting.songs));
+      }
       // Purge store
       persistStore(store, config, startup).purge()
       AsyncStorage.setItem('reducerVersion', reducerVersion)
