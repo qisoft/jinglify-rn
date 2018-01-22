@@ -4,7 +4,7 @@ import { Images } from '../../../../theme'
 
 import styles from './styles'
 
-export const SongRow = (row, removeSong) => (
+export const SongRow = ({ row, removeSong }) => (
   <View style={styles.listRow} key={row.persistentId}>
     { row.isEditing
       ? <TouchableOpacity onPress={() => removeSong(row)} style={styles.songDelete}>

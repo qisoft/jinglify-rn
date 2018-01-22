@@ -1,17 +1,14 @@
 import React from 'react'
 import { AppState, View, Text, TouchableOpacity, Alert, LayoutAnimation, findNodeHandle } from 'react-native'
 import { connect } from 'react-redux'
-import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import { Actions as NavigationActions } from 'react-native-router-flux'
-import { BlurView } from 'react-native-blur'
 import KeepAwake from 'react-native-keep-awake'
 
 import Game from '../../../services/gameService'
 import gameActions from '../redux'
-import Utils from '../../../services/utils'
-import { Colors } from '../../../theme'
-import styles from './GameScreenStyles.js'
-import { Screen, Container, Section } from '../../../components';
+import { CircleTimer, PauseModal, SongTitle, StatusText } from '../components';
+import { Screen, Container, Section, Header } from '../../../components';
+import styles from './GameScreenStyles.js';
 
 class GameScreen extends React.Component {
   static get defaultProps () {
@@ -85,9 +82,6 @@ class GameScreen extends React.Component {
 
   render () {
     let { timeLeft, status, currentPeriod, cleanMatchTime } = this.props
-    let minutesLeft = Utils.pad(Math.floor(timeLeft / 60))
-    let secondsLeft = Utils.pad(this.props.timeLeft % 60)
-    let progress = ((cleanMatchTime - timeLeft) / cleanMatchTime) * 100
     return <Screen>
       <Container style={styles.container} ref={x => {
         let ref = findNodeHandle(x)
@@ -96,51 +90,26 @@ class GameScreen extends React.Component {
         }
       }}>
         <Section>
-          <View style={[styles.header]}>
-            <Text style={styles.titleText}>{ currentPeriod === 0 ? 'Overtime' : `Period #${currentPeriod}` }</Text>
+          <Header title={currentPeriod === 0 ? 'Overtime' : `Period #${currentPeriod}`}>
             <TouchableOpacity onPress={() => this.endGame()}>
               <Text style={styles.buttonRed}>End match</Text>
             </TouchableOpacity>
-          </View>
+          </Header>
         </Section>
-        <View style={styles.songTitleContainer}>
-          <Text style={styles.songTitle}>{this.state.song.artist} - {this.state.song.title}</Text>
-        </View>
+        <SongTitle song={this.state.song}/>
         <View style={styles.gameContainer}>
-          <View style={styles.circleContainer}>
-            <AnimatedCircularProgress
-              rotation={0}
-              style={styles.circleProgress}
-              tintColor={Colors.brand}
-              backgroundColor={Colors.greyBg}
-              size={310}
-              width={10}
-              fill={progress} />
-
-            <TouchableOpacity style={styles.circle} onPress={() => this.pauseGame()}>
-              <Text style={styles.timer}>
-                { timeLeft > cleanMatchTime ? '--:--' : `${minutesLeft}:${secondsLeft}` }</Text>
-              <Text style={styles.tapToPause}>Tap to pause</Text>
-            </TouchableOpacity>
-          </View>
+          <CircleTimer timeLeft={timeLeft} cleanMatchTime={cleanMatchTime} pauseGame={() => this.pauseGame()} />
         </View>
-        <View style={styles.statusContainer}>
-          <Text style={styles.statusText}>{status}</Text>
-        </View>
+        <StatusText status={status}/>
       </Container>
       { this.state.isPaused
-        ? <View elevation={10} style={styles.pauseScreen}>
-          <BlurView downsampleFactor={1} blurRadius={10} style={[styles.pauseBlur]} viewRef={this.state.blurredRef} blurAmount={10} />
-          <View elevation={20} style={styles.pauseMenuContainer}>
-            <Text style={styles.pauseTitle}>Paused</Text>
-            <TouchableOpacity style={styles.pauseThrowButton} onPress={() => this.throwAPuck()}>
-              <Text style={styles.pauseThrowButtonText}>Throw a puck</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.pauseResumeButton} onPress={() => this.resumeGame()}>
-              <Text style={styles.pauseResumeButtonText}>Resume match</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        ? (
+          <PauseModal
+            throwAPuck={() => this.throwAPuck()}
+            resumeGame={() => this.resumeGame()}
+            blurredViewRef={this.state.blurredRef}
+          />
+        )
         : undefined }
     </Screen>
   }

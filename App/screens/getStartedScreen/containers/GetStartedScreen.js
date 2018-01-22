@@ -4,16 +4,12 @@ import { connect } from 'react-redux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import DeviceInfo from 'react-native-device-info'
 
-import BigBlueButton from '../../../components/BigBlueButton/index'
-import { Screen, Container, Section, Header } from '../../../components';
-
-import styles from './GetStartedScreenStyles'
-import BlurryBackground from '../../../components/BlurryBackground/index'
-import StepperSetting from '../../../components/StepperSetting/index'
-import ShortSeparator from '../../../components/ShortSeparator/index'
-import RedButton from '../../../components/RedButton/index'
+import { Screen, Container, Section, Header, BigBlueButton, RedButton } from '../../../components';
+import { BlurryBackground, StepperSetting, ShortSeparator }from '../components';
+import styles from './GetStartedScreenStyles';
 
 import settingsActions from '../redux'
+
 class GetStartedScreen extends Component
 {
   render () {

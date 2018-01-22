@@ -9,6 +9,7 @@ export default class Game {
   constructor (dispatch, state) {
     this.dispatch = dispatch
     this.settings = state.gameSettings
+    this.songs = state.songs
     this.initialBeepOffset = 0
     this.totalMatchTime = 0
     this.matchTimeLeft = 0
@@ -20,8 +21,8 @@ export default class Game {
   }
 
   startNewPeriod () {
-    let idx = Utils.getRandom(0, this.settings.songs.length - 1)
-    let song = this.settings.songs[idx]
+    let idx = Utils.getRandom(0, this.songs.songs.length - 1)
+    let song = this.songs.songs[idx]
     if (song === undefined) {
       song = {
         title: 'song',

@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, findNodeHandle, Image } from 'react-native'
 
-import { Images } from '../../theme'
+import { Images } from '../../../../theme/index'
 import styles from './styles'
 
-export default class BlurryBackground extends React.Component {
+export class BlurryBackground extends React.Component {
   constructor (props) {
     super(props)
     this.state = { viewRef: null }
