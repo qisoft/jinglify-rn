@@ -1,0 +1,30 @@
+
+/* Class = "WKInterfaceController"; title = "Match"; ObjectID = "6Vs-TP-KOm"; */
+"6Vs-TP-KOm.title" = "Матч";
+
+/* Class = "WKInterfaceController"; title = "Paused"; ObjectID = "DUt-Hd-sIw"; */
+"DUt-Hd-sIw.title" = "Пауза";
+
+/* Class = "WKInterfaceButton"; title = "Throw a puck"; ObjectID = "HGc-Zc-0LV"; */
+"HGc-Zc-0LV.title" = "Вбросить шайбу";
+
+/* Class = "WKInterfaceLabel"; text = "Alert Label"; ObjectID = "IdU-wH-bcW"; */
+"IdU-wH-bcW.text" = "Alert Label";
+
+/* Class = "WKInterfaceButton"; title = "Resume match"; ObjectID = "KSt-Vf-8l5"; */
+"KSt-Vf-8l5.title" = "Продолжить";
+
+/* Class = "WKInterfaceLabel"; text = "Period #0"; ObjectID = "S30-hg-35c"; */
+"S30-hg-35c.text" = "Период #0";
+
+/* Class = "WKInterfaceButton"; title = "Start match"; ObjectID = "VwB-gX-3l1"; */
+"VwB-gX-3l1.title" = "Начать матч";
+
+/* Class = "WKInterfaceButton"; title = "End match"; ObjectID = "f3k-up-gNa"; */
+"f3k-up-gNa.title" = "Закончить матч";
+
+/* Class = "WKInterfaceLabel"; text = "Paused"; ObjectID = "lIr-Az-0sY"; */
+"lIr-Az-0sY.text" = "Пауза";
+
+/* Class = "WKInterfaceLabel"; text = "Jinglify"; ObjectID = "oRt-O7-ww6"; */
+"oRt-O7-ww6.text" = "Jinglify";

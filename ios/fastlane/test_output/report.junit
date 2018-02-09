@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='JinglifyUITests.xctest' tests='1' failures='0'>
+  <testsuite name='JinglifyUITests.JinglifyUITests' tests='1' failures='0'>
+    <testcase classname='JinglifyUITests.JinglifyUITests' name='testExample' time='30.690'/>
+  </testsuite>
+</testsuites>

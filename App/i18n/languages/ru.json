@@ -1,0 +1,54 @@
+{
+  "getStarted": {
+    "title": "Jinglify",
+    "jingles": "Джинглы",
+    "songsCount": {
+      "zero": "песен",
+      "one": "песня",
+      "few": "песни",
+      "other": "песен"
+    },
+    "matchTime": "Время периода",
+    "periodsTitle": "Периоды",
+    "minutes": "мин",
+    "periodsCount": "периодов",
+    "startMatch": "Начать матч"
+  },
+  "game": {
+    "period": "Период #{{period}}",
+    "overtime": "Овертайм",
+    "endMatch": "Закончить",
+    "endMatchAlert": {
+      "title": "Закончить матч",
+      "description": "Вы действительно хотите закончить матч?",
+      "yes": "Да",
+      "no": "Нет"      
+    },
+    "tapToPause": "Нажмите для паузы",
+    "minutesLeft": {
+      "one": "осталась одна минута",
+      "few": "осталось {{count}} минуты",
+      "other": "осталось {{count}} минут"
+    },
+    "pause": {
+      "title": "Пауза",
+      "throwAPuck": "Вбросить шайбу",
+      "resumeMatch": "Продолжить матч"      
+    },
+    "status": {
+      "changeSides": "Поменяйтесь сторонами!",
+      "warmUp": "Разминка!",
+      "getReady": "Приготовьтесь!",
+      "paused": "Пауза"
+    }
+  },
+  "songs": {
+    "title": "Джинглы",
+    "close": "Закрыть",
+    "edit": "Редактировать",
+    "done": "Готово",
+    "addMore": "Добавить еще",
+    "noSongs": "У вас нет джинглов",
+    "add": "Добавить"
+  }
+}

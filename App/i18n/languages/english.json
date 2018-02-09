@@ -1,0 +1,52 @@
+{
+  "getStarted": {
+    "title": "Jinglify",
+    "jingles": "Jingles",
+    "songsCount":  {
+      "zero": "songs",
+      "one": "song",
+      "other": "songs"
+    },
+    "matchTime": "Match time",
+    "periodsTitle": "Periods",
+    "minutes": "Minutes",
+    "periodsCount": "periods",
+    "startMatch": "Start a match"
+  },
+  "game": {
+    "period": "Period #{{period}}",
+    "overtime": "Overtime",
+    "endMatch": "End match",
+    "endMatchAlert": {
+      "title": "End match",
+      "description": "Do you want to end the match?",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "tapToPause": "Tap to pause",
+    "minutesLeft": {
+      "one": "one minute left",
+      "other": "{{count}} minutes left"
+    },
+    "pause": {
+      "title": "Paused",
+      "throwAPuck": "Throw a puck",
+      "resumeMatch": "Resume a match"
+    },
+    "status": {
+      "changeSides": "Change your sides!",
+      "warmUp": "Warm up!",
+      "getReady": "Get ready!",
+      "paused": "Paused"
+    }
+  },
+  "songs": {
+    "title": "Jingles",
+    "close": "Close",
+    "edit": "Edit",
+    "done": "Done",
+    "addMore": "Add more songs",
+    "noSongs": "You have no Jingles yet",
+    "add": "Add songs"
+  }
+}

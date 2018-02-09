@@ -153,6 +153,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-quick-actions')
     compile project(':react-native-keep-awake')
     compile project(':react-native-blur')
     compile project(':react-native-i18n')
