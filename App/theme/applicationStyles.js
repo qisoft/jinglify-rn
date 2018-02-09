@@ -22,6 +22,7 @@ const ApplicationStyles = {
       backgroundColor: Colors.transparent
     },
     header: {
+      paddingTop: 16,
       paddingBottom: 14,
       flexDirection: 'row',
       justifyContent: 'space-between',

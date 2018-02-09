@@ -12,6 +12,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "RNQuickActionManager.h"
+#import "WatchBridge.h"
 
 @implementation AppDelegate
 
@@ -39,6 +40,8 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  self.watchBridge = [WatchBridge shared];
+  self.session = self.watchBridge.session;
   return YES;
 }
 

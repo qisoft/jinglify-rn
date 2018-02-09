@@ -6,6 +6,7 @@ import { Actions as NavigationActions } from 'react-native-router-flux'
 import styles from './SongsScreenStyles'
 import songsActions from '../redux';
 import { Screen, Container, Section, Header } from '../../../components';
+import i18n from 'react-native-i18n';
 
 import { SongRow, Separator, NoSongs, EditButton } from '../components'
 
@@ -56,9 +57,10 @@ class SongsScreen extends React.Component {
   }
 
   loadTracks () {
+    const { addSongs } = this.props;
     NativeModules.AudioPlayer.getTracks((err, tracks) => {
       if (err === null) {
-        this.props.addSongs(tracks)
+        addSongs(tracks)
       }
     })
   }
@@ -67,8 +69,8 @@ class SongsScreen extends React.Component {
     if(this.props.songs.length > 0) {
       return <EditButton
         isEditing={this.props.isEditing}
-        loadTracks={this.loadTracks}
-        changeEditingState={this.props.changeEditingState}
+        loadTracks={() => this.loadTracks()}
+        changeEditingState={(isEditing) => this.changeEditingState(isEditing)}
       />;
     }
     return undefined;
@@ -78,13 +80,13 @@ class SongsScreen extends React.Component {
     return <Screen>
       <Container>
         <Section>
-          <Header title={'Jingles'}>
+          <Header title={i18n.t('songs.title')}>
             { !this.props.isEditing
               ? <TouchableOpacity onPress={() => NavigationActions.pop()}>
-                <Text style={styles.buttonRed}>Close</Text>
+                <Text style={styles.buttonRed}>{i18n.t('songs.close')}</Text>
               </TouchableOpacity>
               : <TouchableOpacity onPress={() => this.changeEditingState(false)}>
-                <Text style={[styles.button, styles.doneButton]}>Done</Text>
+                <Text style={[styles.button, styles.doneButton]}>{i18n.t('songs.done')}</Text>
               </TouchableOpacity>
             }
           </Header>
@@ -92,19 +94,19 @@ class SongsScreen extends React.Component {
         <Section>
           { this.renderEditButton() }
         </Section>
-        {
-          this.props.songs.length > 0
-            ? <View style={styles.list}>
-              <ListView
-                dataSource={this.state.dataSource}
-                renderRow={this.renderRow.bind(this)}
-                renderSeparator={this.renderSeparator}
-                enableEmptySections={false}
-              />
-            </View>
-            : <NoSongs loadTracks={this.loadTracks} />
-        }
-      </Container>
+          {
+            this.props.songs.length > 0
+              ? <View style={styles.list}>
+                <ListView
+                  dataSource={this.state.dataSource}
+                  renderRow={this.renderRow.bind(this)}
+                  renderSeparator={this.renderSeparator.bind(this)}
+                  enableEmptySections={false}
+                />
+              </View>
+              : <NoSongs loadTracks={() => this.loadTracks()} />
+          }
+        </Container>
     </Screen>
   }
 }

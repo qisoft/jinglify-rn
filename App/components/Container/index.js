@@ -1,10 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
 import styles from './styles';
-
-export const Container = ({ children }) => (
-  <View style={styles.container}>
-    {children}
-  </View>
-)
+export class Container extends React.Component {
+  render() {
+    const { children, ...other } = this.props;
+    return <SafeAreaView { ...other } style={styles.container}>
+      {children}
+    </SafeAreaView>;
+  }
+}

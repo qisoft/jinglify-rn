@@ -58,6 +58,8 @@ class AudioPlayer : NSObject, MPMediaPickerControllerDelegate {
   }
   
   func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
+    self.callback?([NSNull(), []])
+    self.callback = nil
     mediaPicker.dismiss(animated: true, completion: nil)
   }
   
@@ -89,7 +91,6 @@ class AudioPlayer : NSObject, MPMediaPickerControllerDelegate {
       jinglePlayer = MockPlayer()
       
     #else
-      let url : String = playbackUrl as String
       let parts = playbackUrl.replacingOccurrences(of: self.playbackUrlScheme, with: "").components(separatedBy: "::::")
       let artistTitle = parts[0]
       let songTitle = parts[1]
@@ -101,9 +102,7 @@ class AudioPlayer : NSObject, MPMediaPickerControllerDelegate {
       let items = query.items
       if let song = items?.first
       {
-        print(song.albumArtist)
-        print(song.assetURL)
-          jinglePlayer = MusicPlayer()
+        jinglePlayer = MusicPlayer()
         jinglePlayer?.setJingle(song: song)
       }
     #endif

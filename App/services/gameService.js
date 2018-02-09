@@ -1,12 +1,13 @@
 import gameActions from '../screens/gameScreen/redux/index'
 import { NativeModules } from 'react-native'
 import Speech from 'react-native-speech'
+import i18n from 'react-native-i18n';
 
 import Utils from './utils'
 const AudioPlayer = NativeModules.AudioPlayer
 
 export default class Game {
-  constructor (dispatch, state) {
+  constructor (dispatch, state, locale) {
     this.dispatch = dispatch
     this.settings = state.gameSettings
     this.songs = state.songs
@@ -16,6 +17,7 @@ export default class Game {
     this.currentPeriod = 0
     this.totalPeriods = this.settings.periodsCount >= 1 ? this.settings.periodsCount : 1
     this.isOvertime = false
+    this.locale = locale;
     this.gameEndCallback = () => {}
     this.onSongChange = () => {}
   }
@@ -49,11 +51,11 @@ export default class Game {
     this.dispatch(gameActions.setMatchTimeLeft(this.matchTimeLeft))
   }
 
-  startGame (gameEndCallback, onSongChange) {
+  startGame (onSongChange) {
+    this.dispatch(gameActions.setCurrentGame(this));
     this.onSongChange = onSongChange
     this.startNewPeriod()
     this.setupGameTimer()
-    this.gameEndCallback = gameEndCallback
   }
 
   setupGameTimer () {
@@ -75,7 +77,8 @@ export default class Game {
   pauseGame () {
     this.isPaused = true
     this.invalidateTimers()
-    this.dispatch(gameActions.setStatus('Paused'))
+    this.dispatch(gameActions.setPaused(true));
+    this.dispatch(gameActions.setStatus(i18n.t('game.status.paused')))
     if (this.isJinglePlaying) {
       AudioPlayer.pauseJingle()
     }
@@ -84,15 +87,17 @@ export default class Game {
   resumeGame () {
     this.isPaused = false
     this.setupGameTimer()
+    this.dispatch(gameActions.setPaused(false));
     if (this.isJinglePlaying) {
       AudioPlayer.playJingle()
     }
   }
 
-  stopGame () {
+  stopGame (callback) {
     this.invalidateTimers()
     AudioPlayer.stopPlayers()
-    this.gameEndCallback()
+    this.dispatch(gameActions.setCurrentGame(null));
+    callback && callback();
   }
 
   playJingle () {
@@ -101,8 +106,9 @@ export default class Game {
   }
 
   throwAPuck () {
-    this.dispatch(gameActions.setStatus('Get Ready!'))
+    this.dispatch(gameActions.setStatus(i18n.t('game.status.getReady')))
     this.isPaused = true
+    this.dispatch(gameActions.setPaused(false));
     AudioPlayer.vibrate()
     if (this.isJinglePlaying) {
       AudioPlayer.pauseJingle()
@@ -141,16 +147,16 @@ export default class Game {
 
   getStatus (timeLeft, timeSpent) {
     if (timeSpent < 0) {
-      return 'Change your sides!'
+      return i18n.t('game.status.changeSides');
     }
     if (timeLeft <= this.settings.matchTime * 60) {
-      return ''
+      return '';
     }
     if (timeSpent >= 0 && timeSpent <= 27) {
-      return 'Warm-up!'
+      return i18n.t('game.status.warmUp');
     }
 
-    return 'Get Ready!'
+    return i18n.t('game.status.getReady');
   }
 
   startOvertime () {
@@ -195,8 +201,8 @@ export default class Game {
     } else if (timeLeft > 59 && timeLeft < this.settings.matchTime * 60 && timeLeft % 60 === 0) {
       const minutesLeft = timeLeft / 60
       Speech.speak({
-        text: `${minutesLeft} minute${minutesLeft > 1 ? 's' : ''} left`,
-        voice: 'en-US'
+        text: i18n.t('game.minutesLeft', { count: minutesLeft }),
+        voice: this.locale
       })
       // AudioPlayer.beep(timeLeft / 60)
     }

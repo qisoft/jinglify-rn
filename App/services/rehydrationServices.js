@@ -6,7 +6,6 @@ import gameActions from '../screens/gameScreen/redux'
 
 const updateReducers = (store: Object) => {
   const reducerVersion = ReduxPersist.reducerVersion
-  const config = ReduxPersist.storeConfig
   const startup = () => {
     store.dispatch(songsAction.setEditingState(false))
     store.dispatch(gameActions.setPaused(false))
@@ -27,17 +26,17 @@ const updateReducers = (store: Object) => {
 
       // migrate from v.4 to v.5 store
       if (localVersion === '4' && reducerVersion === '5') {
-        const { gameSetting } = store.getState();
-        store.dispatch(songsAction.addSongs(gameSetting.songs));
+        const state = store.getState();
+        store.dispatch(songsAction.addSongs(state.gameSettings.songs));
       }
       // Purge store
-      persistStore(store, config, startup).purge()
+      persistStore(store, null, startup).purge()
       AsyncStorage.setItem('reducerVersion', reducerVersion)
     } else {
-      persistStore(store, config, startup)
+      persistStore(store, null, startup)
     }
   }).catch(() => {
-    persistStore(store, config, startup)
+    persistStore(store, null, startup)
     AsyncStorage.setItem('reducerVersion', reducerVersion)
   })
 }

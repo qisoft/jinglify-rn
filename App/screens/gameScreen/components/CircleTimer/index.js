@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
+import i18n from 'react-native-i18n';
 
 import styles from './styles';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
@@ -24,7 +25,7 @@ export const CircleTimer = ({ timeLeft, cleanMatchTime, pauseGame }) => {
       <TouchableOpacity style={styles.circle} onPress={() => pauseGame()}>
         <Text style={styles.timer}>
           { timeLeft > cleanMatchTime ? '--:--' : `${minutesLeft}:${secondsLeft}` }</Text>
-        <Text style={styles.tapToPause}>Tap to pause</Text>
+        <Text style={styles.tapToPause}>{i18n.t('game.tapToPause')}</Text>
       </TouchableOpacity>
     </View>
   )

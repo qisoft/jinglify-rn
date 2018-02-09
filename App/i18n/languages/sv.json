@@ -1,1 +1,52 @@
-{}
+{
+  "getStarted": {
+    "title": "Jinglify",
+    "jingles": "Jingles",
+    "songsCount":  {
+      "zero": "sånger",
+      "one": "sång",
+      "other": "sånger"
+    },
+    "matchTime": "Matchtid",
+    "periodsTitle": "Perioder",
+    "minutes": "Minuter",
+    "periodsCount": "perioder",
+    "startMatch": "Starta en match"
+  },
+  "game": {
+    "period": "Period #{{period}}",
+    "overtime": "Övertid",
+    "endMatch": "Avsluta matchen",
+    "endMatchAlert": {
+      "title": "Avsluta matchen",
+      "description": "Vill du avsluta matchen?",
+      "yes": "Ja",
+      "no": "Nej"
+    },
+    "tapToPause": "Tryck för paus",
+    "minutesLeft": {
+      "one": "en minut kvar",
+      "other": "{{count}} minuter kvar"
+    },
+    "pause": {
+      "title": "Pausat",
+      "throwAPuck": "Kasta pucken",
+      "resumeMatch": "Fortsätta matchen"
+    },
+    "status": {
+      "changeSides": "Byt sidor!",
+      "warmUp": "Värm upp!",
+      "getReady": "Gör er redo!",
+      "paused": "Pausat"
+    }
+  },
+  "songs": {
+    "title": "Jingles",
+    "close": "Stänga",
+    "edit": "Ändra",
+    "done": "Klar",
+    "addMore": "Lägga till fler sånger",
+    "noSongs": "Du har inga sånger än",
+    "add": "Lägga till sånger"
+  }
+}

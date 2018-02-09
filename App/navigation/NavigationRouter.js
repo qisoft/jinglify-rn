@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Scene, Router } from 'react-native-router-flux'
+import { Scene, Stack, Router } from 'react-native-router-flux'
 
 // screens identified by the router
 import GetStartedScreen from '../screens/getStartedScreen/containers/GetStartedScreen'
@@ -13,9 +13,11 @@ class NavigationRouter extends Component {
   render () {
     return (
       <Router>
-        <Scene initial key='getStarted' component={GetStartedScreen} title='Get Started' hideNavBar />
-        <Scene key='songs' component={SongsScreen} title='Songs' hideNavBar />
-        <Scene key='game' component={GameScreen} title='Game' hideNavBar />
+        <Stack key="root">
+          <Scene initial key='getStarted' component={GetStartedScreen} title='Get Started' hideNavBar />
+          <Scene key='songs' component={SongsScreen} title='Songs' hideNavBar />
+          <Scene key='game' component={GameScreen} title='Game' hideNavBar />
+        </Stack>
       </Router>
     )
   }

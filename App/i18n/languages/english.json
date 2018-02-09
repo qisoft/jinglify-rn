@@ -1,26 +1,52 @@
 {
-   "signIn": "Sign In",
-   "logOut": "Log Out",
-   "loginLogoutExampleTitle": "Login/Logout Redux + Sagas Example",
-   "progressiveImageComponent": "Progressive Image Component",
-   "api": "API",
-   "locale": "I18n Locale",
-   "rnVectorIcons": "RN Vector Icons",
-   "loginWithFacebook": "Login with Facebook",
-   "rni18n": "RN i18n",
-   "igniteGenerated": "Ignite Generate Screens",
-   "forgotPassword": "Forgot Password",
-   "username": "Username",
-   "password": "Password",
-   "cancel": "Cancel",
-   "welcome": "Welcome",
-   "login": "Login",
-   "tempIndicator": "F",
-   "componentExamples": "Component Examples",
-   "usageExamples": "Usage Examples",
-   "apiTesting": "API Testing",
-   "themeSettings": "Theme Settings",
-   "deviceDetails": "Device Details",
-   "noItems": "No Items",
-   "search": "Search"
+  "getStarted": {
+    "title": "Jinglify",
+    "jingles": "Jingles",
+    "songsCount":  {
+      "zero": "songs",
+      "one": "song",
+      "other": "songs"
+    },
+    "matchTime": "Match time",
+    "periodsTitle": "Periods",
+    "minutes": "Minutes",
+    "periodsCount": "periods",
+    "startMatch": "Start a match"
+  },
+  "game": {
+    "period": "Period #{{period}}",
+    "overtime": "Overtime",
+    "endMatch": "End match",
+    "endMatchAlert": {
+      "title": "End match",
+      "description": "Do you want to end the match?",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "tapToPause": "Tap to pause",
+    "minutesLeft": {
+      "one": "one minute left",
+      "other": "{{count}} minutes left"
+    },
+    "pause": {
+      "title": "Paused",
+      "throwAPuck": "Throw a puck",
+      "resumeMatch": "Resume a match"
+    },
+    "status": {
+      "changeSides": "Change your sides!",
+      "warmUp": "Warm up!",
+      "getReady": "Get ready!",
+      "paused": "Paused"
+    }
+  },
+  "songs": {
+    "title": "Jingles",
+    "close": "Close",
+    "edit": "Edit",
+    "done": "Done",
+    "addMore": "Add more songs",
+    "noSongs": "You have no Jingles yet",
+    "add": "Add songs"
+  }
 }
