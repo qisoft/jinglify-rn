@@ -42,11 +42,15 @@ class GameScreen extends React.Component {
   }
   pauseGame () {
     this.game.pauseGame()
-    sendMessage({ event: 'pause' });
+    sendMessage({ event: 'pause' }, (err, response) => {
+      console.log(err);
+      console.log(response);
+      debugger;
+    });
   }
 
   resumeGame () {
-    this.props.currentGame.resumeGame()
+    this.game.resumeGame()
     sendMessage({ event: 'resume' });
   }
 
@@ -66,6 +70,11 @@ class GameScreen extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.timeLeft !== this.props.timeLeft) {
+      sendMessage({ event: 'timeUpdated', timeLeft: this.props.timeLeft, timeTotal: this.props.matchTime });
+    }
+  }
 
   componentDidMount () {
     getLanguages().then(langs => {
@@ -80,22 +89,22 @@ class GameScreen extends React.Component {
       }
       switch (message.command) {
         case 'pause': {
-          this.game.pauseGame();
+          this.pauseGame();
           reply({ success: true });
           break;
         }
         case 'resume': {
-          this.game.resumeGame();
+          this.resumeGame();
           reply({ success: true });
           break;
         }
         case 'throw': {
-          this.game.throwAPuck();
+          this.throwAPuck();
           reply({ success: true });
           break;
         }
         case 'endMatch': {
-          this.game.stopGame();
+          this.stopGame();
           reply({ success: true });
           break;
         }
@@ -110,10 +119,12 @@ class GameScreen extends React.Component {
   }
 
   componentWillUnmount () {
-    AppState.removeEventListener('change', this._handleAppStateChange)
+    try {
+      AppState.removeEventListener('change', this._handleAppStateChange)
+      this.unsubscribe && this.unsubscribe();
+    } catch (e) { console.log(e) }
     KeepAwake.deactivate()
     this.game.stopGame();
-    this.unsubscribe();
   }
 
   _handleAppStateChange = (nextAppState) => {
@@ -143,6 +154,7 @@ class GameScreen extends React.Component {
           <CircleTimer timeLeft={timeLeft} cleanMatchTime={cleanMatchTime} pauseGame={() => this.pauseGame()} />
         </View>
       </Container>
+
       <StatusText status={status}/>
       { this.state.isPaused
         ? (

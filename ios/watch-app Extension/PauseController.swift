@@ -10,67 +10,57 @@ import WatchKit
 import Foundation
 import WatchConnectivity
 
-class PauseController: WKInterfaceController, WCSessionDelegate {
-  var session : WCSession?
-  
-  override func awake(withContext context: Any?) {
-    super.awake(withContext: context)
-    if (WCSession.isSupported()){
-      self.session = WCSession.default
-      self.session?.delegate = self
-      self.session?.activate()
-    }
-    // Configure interface objects here.
-  }
-  
-  func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-    if activationState != .activated {
-      return
-    }
-    self.session?.sendMessage(["command": "getState"], replyHandler: { (reply) in
-      let isMatchStarted = reply["isMatchStarted"] as? Bool ?? false;
-      if (isMatchStarted == false) {
-        self.pop()
-      } else if reply["isPaused"] as? Bool ?? false == true {
-        self.pushController(withName: "PauseController", context: nil)
-      }
-    }, errorHandler: nil)
-  }
-
-  
-  func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-    switch message["event"] as? String ?? "" {
-    case "resume", "throw":
+class PauseController: WKInterfaceController, WatchDataProviderDelegate {
+  func eventReceived(event: Event) {
+    switch event {
+    case .resume, .throwAPuck:
       self.pop()
     default:
       return
     }
   }
+  
+  func onActivated() {
+    WatchDataProvider.sharedInstance.getState { (reply) in
+      let isMatchStarted = reply["isMatchStarted"] as? Bool ?? false;
+      if (isMatchStarted == false) {
+        self.popToRootController()
+      }
+    }
+  }
+  
+  override func awake(withContext context: Any?) {
+    super.awake(withContext: context)
+    // Configure interface objects here.
+  }
+  
+  
+  override func didAppear() {
+    super.didAppear()
+    WatchDataProvider.sharedInstance.addDelegate(self)
+  }
+  override func willDisappear() {
+    super.willDisappear()
+    WatchDataProvider.sharedInstance.removeDelegate(self)
+  }
+  
   override func willActivate() {
     // This method is called when watch view controller is about to be visible to user
     super.willActivate()
   }
   @IBAction func onResumeTap() {
-    if self.session?.activationState != .activated {
-      return
-    }
-    
-    self.session?.sendMessage(["command": "resume"], replyHandler: { (reply) in
+    WatchDataProvider.sharedInstance.sendCommand("resume") { (reply) in
       if reply["success"] as? Bool ?? false == true {
         self.pop()
       }
-    }, errorHandler: nil)
+    }
   }
   @IBAction func onThrowTap() {
-    if self.session?.activationState != .activated {
-      return
-    }
-    
-    self.session?.sendMessage(["command": "throw"], replyHandler: { (reply) in
+    WatchDataProvider.sharedInstance.sendCommand("throw") { (reply) in
       if reply["success"] as? Bool ?? false == true {
         self.pop()
       }
-    }, errorHandler: nil)
+    }
   }
     
   override func didDeactivate() {

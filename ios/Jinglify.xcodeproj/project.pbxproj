@@ -43,9 +43,10 @@
 		282CFC621EB6772C00B00F2A /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 282CFC611EB6772C00B00F2A /* RobotoMono-Bold.ttf */; };
 		282CFD151EB89D4400B00F2A /* MockPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282CFD141EB89D4400B00F2A /* MockPlayer.swift */; };
 		282CFD371EB8A3B000B00F2A /* russian-anthem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 282CFD361EB8A3B000B00F2A /* russian-anthem.mp3 */; };
+		28D1D17B206933F6001D4851 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D1D17A206933F6001D4851 /* Event.swift */; };
+		28D7497F205591E2006821EB /* WatchDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7497E205591E2006821EB /* WatchDataProvider.swift */; };
 		28DF601F1FBF8B2600596F21 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF601E1FBF8B2600596F21 /* MusicPlayer.swift */; };
 		29B54CF63E214C008896B08F /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5257071D91CB4531813D5CC4 /* libcxxreact.a */; };
-		4F4D487806AF4F9CAFA929CB /* libRNVolumeSlider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B212DE5DF80340BEBA52D79E /* libRNVolumeSlider.a */; };
 		58124888A92F468A87CBD5AC /* libRNWatch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC206B785B6E4E60B8F34988 /* libRNWatch.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		6EC7666404284856AD4B1EF6 /* libKCKeepAwake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 382D07893BEB4304B07DAD57 /* libKCKeepAwake.a */; };
@@ -57,7 +58,6 @@
 		DBDB942AA50D4758852F3B51 /* libSpeechSynthesizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF95D03B90F4404593AFA64A /* libSpeechSynthesizer.a */; };
 		E4DBA860221945B283463768 /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DED120D7A44D96B56E649B /* libRNBlur.a */; };
 		EF04F3AA1EE2438F9A4EC498 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A4BCC4AC9F4E329BB67F26 /* libReact.a */; };
-		F26A51BC4D8C4E0B932D1EC8 /* libRNiTunes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6063369932644E4BC271339 /* libRNiTunes.a */; };
 		F5C49122454E484A8E9A3D09 /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C83433F0BC7C4A81911E13F8 /* libyoga.a */; };
 /* End PBXBuildFile section */
 
@@ -167,13 +167,6 @@
 			remoteGlobalIDString = A68BD7BC1BC31318005F02DF;
 			remoteInfo = RNBlur;
 		};
-		282CFC211EB51ADA00B00F2A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28A14C19731842C6A3904799 /* RNiTunes.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FFEC319C1C46B4EB0080A80E;
-			remoteInfo = RNiTunes;
-		};
 		282CFC5A1EB66F3100B00F2A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 282CFC561EB66F3000B00F2A /* ART.xcodeproj */;
@@ -187,13 +180,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = KCKeepAwake;
-		};
-		283624451ECB211900927E1A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 283624411ECB211900927E1A /* SwiftMonkey.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = OBJ_16;
-			remoteInfo = SwiftMonkey;
 		};
 		2863AFB02019FFDF00E2CCE0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -306,13 +292,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 91090D8B1BB6C934009AE358;
 			remoteInfo = RNQuickAction;
-		};
-		28DF60191FBF891200596F21 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FF97E85B53004694B51990A7 /* RNVolumeSlider.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B15A785B1C561BA20027C1CE;
-			remoteInfo = RNVolumeSlider;
 		};
 		28DF601C1FBF891200596F21 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -521,10 +500,8 @@
 		282CFC611EB6772C00B00F2A /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RobotoMono-Bold.ttf"; path = "Jinglify/RobotoMono-Bold.ttf"; sourceTree = "<group>"; };
 		282CFD141EB89D4400B00F2A /* MockPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPlayer.swift; sourceTree = "<group>"; };
 		282CFD361EB8A3B000B00F2A /* russian-anthem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "russian-anthem.mp3"; path = "Jinglify/russian-anthem.mp3"; sourceTree = "<group>"; };
-		283624411ECB211900927E1A /* SwiftMonkey.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftMonkey.xcodeproj; path = SwiftMonkey/SwiftMonkey.xcodeproj; sourceTree = "<group>"; };
-		283624511ECB234500927E1A /* JinglifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JinglifyUITests.swift; sourceTree = "<group>"; };
-		283624531ECB234500927E1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		28A14C19731842C6A3904799 /* RNiTunes.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNiTunes.xcodeproj; path = "../node_modules/react-native-itunes/RNiTunes.xcodeproj"; sourceTree = "<group>"; };
+		28D1D17A206933F6001D4851 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		28D7497E205591E2006821EB /* WatchDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDataProvider.swift; sourceTree = "<group>"; };
 		28DF601E1FBF8B2600596F21 /* MusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MusicPlayer.swift; path = Jinglify/MusicPlayer.swift; sourceTree = "<group>"; };
 		382D07893BEB4304B07DAD57 /* libKCKeepAwake.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libKCKeepAwake.a; sourceTree = "<group>"; };
 		5257071D91CB4531813D5CC4 /* libcxxreact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libcxxreact.a; sourceTree = "<group>"; };
@@ -546,7 +523,6 @@
 		D6063369932644E4BC271339 /* libRNiTunes.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNiTunes.a; sourceTree = "<group>"; };
 		E3DA083EF7B5482C8213514D /* RNQuickAction.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNQuickAction.xcodeproj; path = "../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction.xcodeproj"; sourceTree = "<group>"; };
 		E81AC0C50FCA4C428B1E4E81 /* libRNI18n.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNI18n.a; sourceTree = "<group>"; };
-		FF97E85B53004694B51990A7 /* RNVolumeSlider.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVolumeSlider.xcodeproj; path = "../node_modules/react-native-volume-slider/ios/RNVolumeSlider.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -575,10 +551,8 @@
 				29B54CF63E214C008896B08F /* libcxxreact.a in Frameworks */,
 				D65249404B9D4AB48F88AB1C /* libjschelpers.a in Frameworks */,
 				E4DBA860221945B283463768 /* libRNBlur.a in Frameworks */,
-				F26A51BC4D8C4E0B932D1EC8 /* libRNiTunes.a in Frameworks */,
 				6EC7666404284856AD4B1EF6 /* libKCKeepAwake.a in Frameworks */,
 				DBDB942AA50D4758852F3B51 /* libSpeechSynthesizer.a in Frameworks */,
-				4F4D487806AF4F9CAFA929CB /* libRNVolumeSlider.a in Frameworks */,
 				9E8D1FDE90144B7CBDCE5002 /* libRNQuickAction.a in Frameworks */,
 				15D83712B9264F5C93605478 /* libRNI18n.a in Frameworks */,
 				58124888A92F468A87CBD5AC /* libRNWatch.a in Frameworks */,
@@ -726,6 +700,8 @@
 				282981AB201E277D003996B7 /* PushNotificationPayload.apns */,
 				282981E9201E5C91003996B7 /* GameController.swift */,
 				28298201201E611D003996B7 /* PauseController.swift */,
+				28D7497E205591E2006821EB /* WatchDataProvider.swift */,
+				28D1D17A206933F6001D4851 /* Event.swift */,
 			);
 			path = "watch-app Extension";
 			sourceTree = "<group>";
@@ -773,14 +749,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		282CFBFC1EB51ADA00B00F2A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				282CFC221EB51ADA00B00F2A /* libRNiTunes.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		282CFBFE1EB51ADA00B00F2A /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -807,23 +775,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		283624421ECB211900927E1A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				283624461ECB211900927E1A /* SwiftMonkey.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		283624501ECB234500927E1A /* JinglifyUITests */ = {
-			isa = PBXGroup;
-			children = (
-				283624511ECB234500927E1A /* JinglifyUITests.swift */,
-				283624531ECB234500927E1A /* Info.plist */,
-			);
-			path = JinglifyUITests;
-			sourceTree = "<group>";
-		};
 		2863B046201B0AC900E2CCE0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -845,14 +796,6 @@
 			isa = PBXGroup;
 			children = (
 				28DF601D1FBF891200596F21 /* libSpeechSynthesizer.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		28DF60161FBF891100596F21 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				28DF601A1FBF891200596F21 /* libRNVolumeSlider.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -899,7 +842,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				283624411ECB211900927E1A /* SwiftMonkey.xcodeproj */,
 				282CFC561EB66F3000B00F2A /* ART.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -915,10 +857,8 @@
 				CA80B88261E64774981B332D /* ReactNativeConfig.xcodeproj */,
 				CBF7FC5920F64B378ECAFA88 /* RNDeviceInfo.xcodeproj */,
 				140B43F5668043DAA9CF159F /* RNBlur.xcodeproj */,
-				28A14C19731842C6A3904799 /* RNiTunes.xcodeproj */,
 				8D33D89B169A476EAAF8AF8F /* KCKeepAwake.xcodeproj */,
 				2619B548D39841EE8DF362BC /* SpeechSynthesizer.xcodeproj */,
-				FF97E85B53004694B51990A7 /* RNVolumeSlider.xcodeproj */,
 				E3DA083EF7B5482C8213514D /* RNQuickAction.xcodeproj */,
 				D49BC0D4635E41988B0D2985 /* RNI18n.xcodeproj */,
 				0EC1D9C70263459BA093B129 /* RNWatch.xcodeproj */,
@@ -941,7 +881,6 @@
 				13B07FAE1A68108700A75B9A /* Jinglify */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				282C25531ECAFE6E00896624 /* JinglifyUITests */,
-				283624501ECB234500927E1A /* JinglifyUITests */,
 				28298192201E277D003996B7 /* watch-app */,
 				282981A1201E277D003996B7 /* watch-app Extension */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -1128,16 +1067,8 @@
 					ProjectRef = D49BC0D4635E41988B0D2985 /* RNI18n.xcodeproj */;
 				},
 				{
-					ProductGroup = 282CFBFC1EB51ADA00B00F2A /* Products */;
-					ProjectRef = 28A14C19731842C6A3904799 /* RNiTunes.xcodeproj */;
-				},
-				{
 					ProductGroup = 28A14A3E1FD002D3001B5CDF /* Products */;
 					ProjectRef = E3DA083EF7B5482C8213514D /* RNQuickAction.xcodeproj */;
-				},
-				{
-					ProductGroup = 28DF60161FBF891100596F21 /* Products */;
-					ProjectRef = FF97E85B53004694B51990A7 /* RNVolumeSlider.xcodeproj */;
 				},
 				{
 					ProductGroup = 2829833C202221EB003996B7 /* Products */;
@@ -1146,10 +1077,6 @@
 				{
 					ProductGroup = 28DF60141FBF891100596F21 /* Products */;
 					ProjectRef = 2619B548D39841EE8DF362BC /* SpeechSynthesizer.xcodeproj */;
-				},
-				{
-					ProductGroup = 283624421ECB211900927E1A /* Products */;
-					ProjectRef = 283624411ECB211900927E1A /* SwiftMonkey.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1246,13 +1173,6 @@
 			remoteRef = 282CFC1B1EB51ADA00B00F2A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		282CFC221EB51ADA00B00F2A /* libRNiTunes.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNiTunes.a;
-			remoteRef = 282CFC211EB51ADA00B00F2A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		282CFC5B1EB66F3100B00F2A /* libART.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1265,13 +1185,6 @@
 			fileType = archive.ar;
 			path = libKCKeepAwake.a;
 			remoteRef = 282CFD601EB8BCFF00B00F2A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		283624461ECB211900927E1A /* SwiftMonkey.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftMonkey.framework;
-			remoteRef = 283624451ECB211900927E1A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2863AFB12019FFDF00E2CCE0 /* libRNBlur.a */ = {
@@ -1384,13 +1297,6 @@
 			fileType = archive.ar;
 			path = libRNQuickAction.a;
 			remoteRef = 28A14A411FD002D3001B5CDF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		28DF601A1FBF891200596F21 /* libRNVolumeSlider.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNVolumeSlider.a;
-			remoteRef = 28DF60191FBF891200596F21 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		28DF601D1FBF891200596F21 /* libSpeechSynthesizer.a */ = {
@@ -1593,8 +1499,10 @@
 			files = (
 				28298202201E611D003996B7 /* PauseController.swift in Sources */,
 				282981A7201E277D003996B7 /* NotificationController.swift in Sources */,
+				28D7497F205591E2006821EB /* WatchDataProvider.swift in Sources */,
 				282981EA201E5C91003996B7 /* GameController.swift in Sources */,
 				282981A5201E277D003996B7 /* ExtensionDelegate.swift in Sources */,
+				28D1D17B206933F6001D4851 /* Event.swift in Sources */,
 				282981A3201E277D003996B7 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

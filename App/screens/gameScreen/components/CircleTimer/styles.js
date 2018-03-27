@@ -7,18 +7,19 @@ export default StyleSheet.create({
     height: 310
   },
   circle: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.background,
     width: 290,
     height: 290,
-    left: 10,
-    top: 10,
-    borderRadius: 150,
+    left: 12,
+    top: 12,
+    borderRadius: 145,
     justifyContent: 'center',
     alignItems: 'center'
   },
   circleProgress: {
     position: 'absolute',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    borderRadius: 161,
   },
   timer: {
     ...Fonts.style.timer,

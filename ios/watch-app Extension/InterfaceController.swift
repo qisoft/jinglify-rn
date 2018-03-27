@@ -10,50 +10,48 @@ import WatchKit
 import Foundation
 import WatchConnectivity
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate {
-  @IBOutlet var startMatchButton: WKInterfaceButton!
-  
-  
-  var session : WCSession?
-  override func awake(withContext context: Any?) {
-    super.awake(withContext: context)
-    if (WCSession.isSupported()){
-      self.session = WCSession.default
-      self.session?.delegate = self
-      self.session?.activate()
+class InterfaceController: WKInterfaceController, WatchDataProviderDelegate {
+  func eventReceived(event: Event) {
+    switch event {
+    case .startMatch: self.startMatch()
+    default: return
     }
-    // Configure interface objects here.
   }
   
-  func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-    if activationState != .activated {
-      return
-    }
-    self.session?.sendMessage(["command": "getState"], replyHandler: { (reply) in
-      if (reply["isMatchStarted"] as? Bool ?? false == true) {
+  func onActivated() {
+    WatchDataProvider.sharedInstance.getState { (state) in
+      if (state["isMatchStarted"] as? Bool ?? false == true) {
         self.startMatch()
       }
-    }, errorHandler: nil)
-  }
-  
-  
-  
-  func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-    switch message["event"] as? String ?? "" {
-    case "startMatch":
-      self.startMatch()
-    default:
-      return
     }
   }
+  
+  @IBOutlet var startMatchButton: WKInterfaceButton!
+  
+  override func awake(withContext context: Any?) {
+    super.awake(withContext: context)
+    // Configure interface objects here.
+    
+  }
+  
+  override func didAppear() {
+    super.didAppear()
+    WatchDataProvider.sharedInstance.addDelegate(self)
+  }
+  override func willDisappear() {
+    super.willDisappear()
+    WatchDataProvider.sharedInstance.removeDelegate(self)
+  }
+  
   
   func startMatch() {
     self.pushController(withName: "GameController", context: nil)
   }
+  
   @IBAction func onStartMatchTap() {
-    WCSession.default.sendMessage(["command": "startMatch"], replyHandler: { (_) in
-      self.startMatch()
-    }, errorHandler: nil)
+    WatchDataProvider.sharedInstance.sendCommand("startMatch") { _ in
+      //self.startMatch()
+    }
   }
     
   override func willActivate() {

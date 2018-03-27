@@ -34,8 +34,12 @@ class GetStartedScreen extends Component {
     })
   }
 
-  componentWillUpdate(nextProps, nextState, nextContext) {
-    this.unsubscribe();
+  componentWillUnmount() {
+    try {
+      this.unsubscribe();
+    } catch (e) {
+      console.log(e);
+    }
   }
 
 

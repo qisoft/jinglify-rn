@@ -29,7 +29,7 @@ export default StyleSheet.create({
   },
   songTitle: {
     ...Fonts.style.songTitle,
-    color: Colors.text,
+    color: Colors.title,
     height: 20
   },
   songDelete: {

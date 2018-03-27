@@ -51,13 +51,13 @@
             <objects>
                 <controller identifier="GameController" title="Match" id="6Vs-TP-KOm" customClass="GameController" customModule="watch_app_Extension">
                     <items>
-                        <label width="136" height="36" alignment="left" text="Period #0" textAlignment="center" id="S30-hg-35c">
-                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                        </label>
                         <button alignment="left" id="bGJ-qz-3Qi">
-                            <group key="contentGroup" width="1" height="72" alignment="left" id="VLY-kM-4O2">
+                            <group key="contentGroup" width="1" height="106" alignment="left" layout="vertical" id="VLY-kM-4O2">
                                 <items>
-                                    <activity alignment="left" semanticContentAttribute="spatial" id="w5m-bW-b1X"/>
+                                    <label alignment="center" verticalAlignment="center" text="05:00" id="NCI-uL-C4y">
+                                        <fontDescription key="font" type="system" pointSize="28"/>
+                                    </label>
+                                    <label alignment="center" verticalAlignment="center" text="Tap to pause" id="cQX-CC-872"/>
                                 </items>
                             </group>
                             <connections>
@@ -65,17 +65,16 @@
                             </connections>
                         </button>
                         <button width="1" alignment="left" title="End match" id="f3k-up-gNa">
-                            <color key="backgroundColor" red="0.60894097222222221" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.75294117647058822" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onEndMatchTap" destination="6Vs-TP-KOm" id="zeE-g4-shG"/>
                             </connections>
                         </button>
                     </items>
                     <connections>
-                        <outlet property="activityRing" destination="w5m-bW-b1X" id="pNO-m1-McS"/>
                         <outlet property="endMatchButton" destination="f3k-up-gNa" id="c8N-Iw-TK4"/>
                         <outlet property="pauseButton" destination="bGJ-qz-3Qi" id="kxP-BR-mfW"/>
-                        <outlet property="periodText" destination="S30-hg-35c" id="tlk-Kx-2m9"/>
+                        <outlet property="timerLabel" destination="NCI-uL-C4y" id="9o6-eB-CGg"/>
                     </connections>
                 </controller>
             </objects>
@@ -90,7 +89,7 @@
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <button width="1" height="66" alignment="left" title="Throw a puck" id="HGc-Zc-0LV">
-                            <color key="backgroundColor" red="0.0" green="0.49803921568627452" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.094117647058823528" green="0.75294117647058822" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onThrowTap" destination="DUt-Hd-sIw" id="kMy-Tm-YC6"/>
                             </connections>

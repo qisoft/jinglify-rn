@@ -1,12 +1,19 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 
 import styles from './styles';
 export class Container extends React.Component {
   render() {
-    const { children, ...other } = this.props;
-    return <SafeAreaView { ...other } style={styles.container}>
-      {children}
-    </SafeAreaView>;
+    const { children, dontUseSafeArea, ...other } = this.props;
+    const component = dontUseSafeArea ? View : SafeAreaView;
+    return dontUseSafeArea ? (
+      <View { ...other } style={styles.container}>
+        {children}
+      </View>
+    ) : (
+      <SafeAreaView { ...other } style={styles.container}>
+        {children}
+      </SafeAreaView>
+    );
   }
 }

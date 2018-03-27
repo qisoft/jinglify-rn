@@ -18,39 +18,39 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S22-E5-i9i">
                     <rect key="frame" x="0.0" y="193.5" width="375" height="280"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="R4y-i4-0IY">
-                            <rect key="frame" x="97" y="0.0" width="180" height="180"/>
+                        <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch" highlightedImage="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="ICH-bN-6Ht">
+                            <rect key="frame" x="112" y="15" width="150" height="150"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="180" id="Y4g-Fs-quN"/>
-                                <constraint firstAttribute="width" constant="180" id="l6v-6M-XDh"/>
+                                <constraint firstAttribute="width" constant="150" id="ASM-Kn-idf"/>
+                                <constraint firstAttribute="height" constant="150" id="OlX-cl-hp0"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jinglify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hG-FI-kWS">
                             <rect key="frame" x="134.5" y="204" width="105.5" height="43"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="36"/>
-                            <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="194-Gt-jQb">
-                            <rect key="frame" x="176" y="251" width="22" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="194-Gt-jQb">
+                            <rect key="frame" x="174.5" y="251" width="25" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
-                            <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.26380304074754901" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.68944400691498187" green="0.68944400691498187" blue="0.69222005208333337" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.086274509803921567" green="0.094117647058823528" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="R4y-i4-0IY" firstAttribute="centerX" secondItem="S22-E5-i9i" secondAttribute="centerX" id="6XS-zj-HGd"/>
                         <constraint firstItem="194-Gt-jQb" firstAttribute="centerX" secondItem="S22-E5-i9i" secondAttribute="centerX" id="EW1-iY-9r8"/>
+                        <constraint firstItem="ICH-bN-6Ht" firstAttribute="centerY" secondItem="S22-E5-i9i" secondAttribute="centerY" constant="-50" id="EZm-CE-jCi"/>
                         <constraint firstItem="194-Gt-jQb" firstAttribute="top" secondItem="8hG-FI-kWS" secondAttribute="bottom" constant="4" id="KOt-c0-vFp"/>
+                        <constraint firstItem="ICH-bN-6Ht" firstAttribute="centerX" secondItem="S22-E5-i9i" secondAttribute="centerX" id="NjM-l6-vHn"/>
                         <constraint firstAttribute="height" constant="280" id="Rhi-qo-8Hs"/>
                         <constraint firstItem="8hG-FI-kWS" firstAttribute="centerX" secondItem="S22-E5-i9i" secondAttribute="centerX" id="cmL-op-bOx"/>
-                        <constraint firstItem="R4y-i4-0IY" firstAttribute="top" secondItem="S22-E5-i9i" secondAttribute="top" id="olM-De-AYc"/>
-                        <constraint firstItem="8hG-FI-kWS" firstAttribute="top" secondItem="R4y-i4-0IY" secondAttribute="bottom" constant="24" id="pLH-M5-XjQ"/>
+                        <constraint firstItem="8hG-FI-kWS" firstAttribute="top" secondItem="ICH-bN-6Ht" secondAttribute="bottom" constant="39" id="wJN-ZW-vva"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.086274509803921567" green="0.094117647058823528" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="S22-E5-i9i" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OvX-fe-X5w"/>
                 <constraint firstItem="S22-E5-i9i" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Vlj-nb-Cn2"/>
@@ -62,6 +62,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Logo" width="179" height="179"/>
+        <image name="Launch" width="179" height="179"/>
     </resources>
 </document>

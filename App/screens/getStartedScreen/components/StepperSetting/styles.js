@@ -9,7 +9,7 @@ export default StyleSheet.create({
     paddingRight: 24,
     paddingTop: 28,
     paddingBottom: 28,
-    backgroundColor: Colors.white
+    backgroundColor: Colors.background
   },
   settingContainer: {
     flex: 1,
@@ -30,7 +30,7 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   stepper: {
-    width: 93,
+    width: 100,
     flexDirection: 'row'
   },
   stepperMinus: {
@@ -41,18 +41,26 @@ export default StyleSheet.create({
     borderBottomRightRadius: 0,
     borderRightWidth: 0.5,
     justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    paddingLeft: 4
+    alignItems: 'center',
+    width: 50,
+    paddingTop: 4,
+    paddingBottom: 6,
+  },
+  stepperText: {
+    color: Colors.brand,
+    fontWeight: 'bold',
   },
   stepperPlus: {
     borderWidth: 1,
     borderLeftWidth: 0.5,
     borderColor: Colors.brand,
+    paddingTop: 4,
     borderRadius: 5,
     borderTopLeftRadius: 0,
     borderBottomLeftRadius: 0,
     justifyContent: 'flex-start',
-    paddingRight: 4
+    alignItems: 'center',
+    width: 50,
   },
   title: {
     ...Fonts.style.h4,

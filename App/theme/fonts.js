@@ -10,7 +10,7 @@ const size = {
   h4: 20,
   timer: 64,
   input: 18,
-  hugeButton: 36,
+  hugeButton: 24,
   bigButton: 24,
   regular: 17,
   medium: 16,
@@ -20,7 +20,7 @@ const size = {
 const style = {
   h1: {
     fontFamily: type.base,
-    fontWeight: '900',
+    fontWeight: '700',
     fontSize: size.h1,
     lineHeight: size.h1
   },
@@ -31,12 +31,12 @@ const style = {
   },
   h3: {
     fontFamily: type.base,
-    fontWeight: '900',
+    fontWeight: '700',
     fontSize: size.h3
   },
   h4: {
     fontFamily: type.base,
-    fontWeight: '900',
+    fontWeight: '700',
     fontSize: size.h4
   },
   timer: {
@@ -72,7 +72,7 @@ const style = {
   songTitle: {
     fontFamily: type.base,
     fontWeight: '500',
-    fontSize: size.regular
+    fontSize: size.regular,
   },
   songSubtitle: {
     fontFamily: type.base,
@@ -86,7 +86,7 @@ const style = {
   },
   hugeButton: {
     fontFamily: type.base,
-    fontWeight: '900',
+    fontWeight: '600',
     fontSize: size.hugeButton
   },
   bigButton: {

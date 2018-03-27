@@ -12,7 +12,7 @@ export default StyleSheet.create({
   },
   title: {
     ...Fonts.style.h3,
-    color: Colors.white
+    color: Colors.title
   },
   textContainer: {
     flex: 1,
@@ -26,11 +26,11 @@ export default StyleSheet.create({
   },
   subtitleNumber: {
     ...Fonts.style.bigBoldText,
-    color: Colors.white
+    color: Colors.title
   },
   subtitleText: {
     ...Fonts.style.bigText,
-    color: Colors.white,
+    color: Colors.title,
     paddingLeft: 4
   },
   arrow: {

@@ -78,7 +78,7 @@ class SongsScreen extends React.Component {
 
   render () {
     return <Screen>
-      <Container>
+      <Container dontUseSafeArea >
         <Section>
           <Header title={i18n.t('songs.title')}>
             { !this.props.isEditing
@@ -123,4 +123,3 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongsScreen)
-

@@ -8,6 +8,7 @@ import sv from './languages/sv.json';
 // Enable fallbacks if you want `en-US` and `en-GB` to fallback to `en`
 I18n.fallbacks = true
 I18n.pluralization["ru"] = (count) => {
+  if(count === 0) return ["zero"];
   const key = count % 10 == 1 && count % 100 != 11
     ? "one"
     : [2, 3, 4].indexOf(count % 10) >= 0 && [12, 13, 14].indexOf(count % 100) < 0

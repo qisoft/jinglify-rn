@@ -10,87 +10,84 @@ import Foundation
 import WatchKit
 import WatchConnectivity
 
-class GameController: WKInterfaceController, WCSessionDelegate {
-  @IBOutlet var periodText: WKInterfaceLabel!
-  @IBOutlet var activityRing: WKInterfaceActivityRing!
-  @IBOutlet var pauseButton: WKInterfaceButton!
-  @IBOutlet var endMatchButton: WKInterfaceButton!
-  
-  var session : WCSession?
-  
-  override func awake(withContext context: Any?) {
-    super.awake(withContext: context)
-    if (WCSession.isSupported()){
-      self.session = WCSession.default
-      self.session?.delegate = self
-      self.session?.activate()
-    }
-    // Configure interface objects here.
-  }
-  
-  func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-    if activationState != .activated {
+class GameController: WKInterfaceController, WatchDataProviderDelegate{
+  func eventReceived(event: Event) {
+    switch event {
+    case .pause:
+      self.pause()
+    case .endMatch:
+      self.endMatch()
+    case .timeUpdated(let timeLeft, let timeTotal):
+      self.timeUpdated(timeLeft: timeLeft, timeTotal: timeTotal)
+    default:
       return
     }
-    self.session?.sendMessage(["command": "getState"], replyHandler: { (reply) in
+  }
+
+  func onActivated() {
+    WatchDataProvider.sharedInstance.getState { (reply) in
       let isMatchStarted = reply["isMatchStarted"] as? Bool ?? false;
       if (isMatchStarted == false) {
         self.endMatch()
       } else if reply["isPaused"] as? Bool ?? false == true {
         self.pause()
       }
-    }, errorHandler: nil)
-  }
-  
-  func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-    switch message["event"] as? String ?? "" {
-    case "pause":
-      self.pause()
-    case "endMatch":
-      self.endMatch()
-    default:
-      return
     }
   }
-  
+
+  override func didAppear() {
+    super.didAppear()
+    WatchDataProvider.sharedInstance.addDelegate(self)
+  }
+  override func willDisappear() {
+    super.willDisappear()
+    WatchDataProvider.sharedInstance.removeDelegate(self)
+  }
+
+
+  @IBOutlet var periodText: WKInterfaceLabel!
+  @IBOutlet var pauseButton: WKInterfaceButton!
+  @IBOutlet var endMatchButton: WKInterfaceButton!
+  @IBOutlet var timerLabel: WKInterfaceLabel!
+
+  override func awake(withContext context: Any?) {
+    super.awake(withContext: context)
+    // Configure interface objects here.
+  }
+
+
   func pause() {
     self.pushController(withName: "PauseController", context: nil)
   }
-  
+
   func endMatch() {
     self.pop()
   }
-  
-  @IBAction func onEndMatchTap() {
-    if self.session?.activationState != .activated {
-      return
+
+  func timeUpdated(timeLeft: Int, timeTotal: Int) {
+    let minutesLeft = timeLeft / 60
+    let secondsLeft = timeLeft % 60
+    if secondsLeft == 0 {
+      WKInterfaceDevice.current().play(.notification)
     }
-    
-    self.session?.sendMessage(["command": "endMatch"], replyHandler: { (reply) in
-      if reply["success"] as? Bool ?? false == true {
-        self.endMatch()
-      }
-    }, errorHandler: nil)
+    timerLabel.setText(timeLeft > timeTotal ? "--:--" : String(format:"%02i:%02i", minutesLeft, secondsLeft))
+  }
+
+  @IBAction func onEndMatchTap() {
+    WatchDataProvider.sharedInstance.sendCommand("endMatch")
   }
   @IBAction func onPauseTap() {
-    if self.session?.activationState != .activated {
-      return
-    }
-    
-    self.session?.sendMessage(["command": "pause"], replyHandler: { (reply) in
-      if reply["success"] as? Bool ?? false == true {
-        self.pause()
-      }
-    }, errorHandler: nil)
+
+    WatchDataProvider.sharedInstance.sendCommand("pause")
   }
   override func willActivate() {
     // This method is called when watch view controller is about to be visible to user
     super.willActivate()
   }
-  
+
   override func didDeactivate() {
     // This method is called when watch view controller is no longer visible
     super.didDeactivate()
   }
-  
+
 }

@@ -12,7 +12,8 @@ export default StyleSheet.create({
     borderTopWidth: 1
   },
   noSongsTitle: {
-    ...Fonts.style.songTitle
+    ...Fonts.style.songTitle,
+    color: Colors.title,
   },
   noSongsButton: {
     ...Fonts.style.bigButton,

@@ -9,7 +9,7 @@ class PausableStatusBar extends Component {
   render () {
     let { isPaused } = this.props
     return (
-        <StatusBar backgroundColor={isPaused ? '#666464' : 'white'} barStyle={isPaused ? 'light-content' : 'dark-content'} />
+        <StatusBar barStyle={'light-content' } />
     )
   }
 }

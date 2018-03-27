@@ -9,8 +9,8 @@ export default StyleSheet.create({
     top: 0,
     width: '100%',
     height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'flex-end',
+    alignItems: 'stretch'
   },
   pauseBlur: {
     position: 'absolute',
@@ -21,11 +21,12 @@ export default StyleSheet.create({
     height: '100%'
   },
   pauseMenuContainer: {
-    height: 368,
-    width: 343,
-    backgroundColor: Colors.white,
+    maxHeight: 358,
+    flex: 1,
+    backgroundColor: Colors.background,
     borderRadius: 20,
     shadowColor: '#000000',
+    margin: 20,
     shadowOffset: {
       width: 0,
       height: 4
@@ -43,22 +44,28 @@ export default StyleSheet.create({
   },
   pauseThrowButton: {
     height: 203,
-    backgroundColor: Colors.brand,
+    backgroundColor: Colors.greyBg,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: 24,
+    borderBottomWidth: 2,
+    borderBottomColor: Colors.background,
   },
   pauseThrowButtonText: {
     ...Fonts.style.hugeButton,
-    color: Colors.white
+    textAlign: 'center',
+    color: Colors.brand
   },
   pauseResumeButton: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 22,
-    paddingBottom: 22
+    padding: 24,
+    backgroundColor: Colors.greyBg,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
   pauseResumeButtonText: {
-    ...Fonts.style.bigButton,
+    ...Fonts.style.button,
     color: Colors.brand
   },
 })

@@ -11,6 +11,7 @@ export default StyleSheet.create({
     paddingTop: 20
   },
   songTitle: {
-    ...Fonts.style.songTitle
+    ...Fonts.style.songTitle,
+    color: Colors.title
   },
 });

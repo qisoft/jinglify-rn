@@ -11,7 +11,8 @@ export default StyleSheet.create({
     flex: 1
   },
   text: {
-    color: Colors.white,
-    ...Fonts.medium
+    color: Colors.title,
+    ...Fonts.style.text,
+    fontWeight: '700'
   }
 })

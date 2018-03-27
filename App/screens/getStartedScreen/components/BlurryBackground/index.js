@@ -19,7 +19,6 @@ export class BlurryBackground extends React.Component {
   render () {
     return <View style={styles.container}>
       <View style={styles.blurredBackground}>
-        <Image source={Images.shadow} />
       </View>
       <View style={styles.contentContainer}>
         {this.props.children}

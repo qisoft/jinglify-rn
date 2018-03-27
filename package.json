@@ -39,6 +39,7 @@
     "react-native-i18n": "^2.0.10",
     "react-native-itunes": "^0.5.0",
     "react-native-keep-awake": "2.0.6",
+    "react-native-progress": "^3.4.0",
     "react-native-quick-actions": "^0.3.6",
     "react-native-router-flux": "4.0.0-beta.28",
     "react-native-speech": "^0.1.2",

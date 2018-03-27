@@ -4,11 +4,11 @@ import { Fonts, Colors } from '../../../../theme';
 export default StyleSheet.create({
   statusContainer: {
     backgroundColor: Colors.greyBg,
-    height: 75,
-    alignItems: 'center'
+    height: 100,
   },
   statusText: {
     ...Fonts.style.h1,
-    color: Colors.title
+    color: Colors.title,
+    textAlign: 'center'
   },
 });

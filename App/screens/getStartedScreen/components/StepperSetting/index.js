@@ -45,10 +45,10 @@ export class StepperSetting extends React.Component {
           <View style={styles.stepperContainer}>
             <View style={styles.stepper}>
               <TouchableOpacity onPress={this.decrement.bind(this)} style={styles.stepperMinus}>
-                <Image source={Images.minus} />
+                <Text style={styles.stepperText}>–</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={this.increment.bind(this)} style={styles.stepperPlus}>
-                <Image source={Images.plus} />
+                <Text style={styles.stepperText}>+</Text>
               </TouchableOpacity>
             </View>
           </View>
