@@ -977,12 +977,12 @@
 					28298190201E277C003996B7 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = NDGVZZNAQK;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					2829819C201E277D003996B7 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = NDGVZZNAQK;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1674,7 +1674,8 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = NDGVZZNAQK;
 				ENABLE_TESTABILITY = YES;
@@ -1684,6 +1685,8 @@
 				INFOPLIST_FILE = "watch-app/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = se.fastdev.jinglify.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "041d7d0f-56bc-464b-9108-6c6f1d749636";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore se.fastdev.jinglify.watchkitapp";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1712,7 +1715,8 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NDGVZZNAQK;
@@ -1722,6 +1726,8 @@
 				INFOPLIST_FILE = "watch-app/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = se.fastdev.jinglify.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "041d7d0f-56bc-464b-9108-6c6f1d749636";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore se.fastdev.jinglify.watchkitapp";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1748,7 +1754,8 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = NDGVZZNAQK;
 				ENABLE_TESTABILITY = YES;
@@ -1756,8 +1763,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "watch-app Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = se.fastdev.jinglify.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = se.fastdev.jinglify.watchkitapp.watchextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "25e30063-a8bc-4baf-8fae-9881cdb02e29";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore se.fastdev.jinglify.watchkitapp.watchextension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1785,7 +1794,8 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NDGVZZNAQK;
@@ -1793,8 +1803,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "watch-app Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = se.fastdev.jinglify.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = se.fastdev.jinglify.watchkitapp.watchextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "25e30063-a8bc-4baf-8fae-9881cdb02e29";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore se.fastdev.jinglify.watchkitapp.watchextension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
