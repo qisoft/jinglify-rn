@@ -3,7 +3,7 @@ import { Colors, Fonts } from '../../../../theme'
 
 export default StyleSheet.create({
   listRow: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.background,
     paddingTop: 12,
     paddingBottom: 12,
     paddingLeft: 16,
